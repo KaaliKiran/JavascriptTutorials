@@ -1,0 +1,2945 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <head>
+    <meta http-equiv="Content-Type" content=" text/html; charset=utf-8" >
+	<meta name="DCSext.scmuser" id="scmdcs" content="" />
+    <meta name="viewport" content="width=768, initial-scale=0.6,maximum-scale=2, user-scalable=yes," >
+    <title>Hitachi Data Systems : Catalog Manager</title>  
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="shortcut icon" href="favicon.ico" />
+    <link rel="stylesheet" type="text/css" href="css/hitachi.css">
+    <link href="css/bootstrap-select.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/preview.css">
+    <link href="css/modal.css" rel="stylesheet">
+    <script type="text/javascript" src="//assets.adobedtm.com/e171f6759c6c455550c5f666e64e8a56fe657d2f/satelliteLib-b5179e7d2c3b7465f7fc5e87367964b1ed653035-staging.js" ></script> 
+ <script src="js/cookie_Redirection.js"></script>
+	<script src="js/cookieIEAlert.js"></script>
+ <script>
+ if(localStorage.getItem('userName')!=null){
+	document.getElementById("scmdcs").setAttribute("content",localStorage.getItem('userName'));
+}else{
+	document.getElementById("scmdcs").setAttribute("content","");
+}
+ var browser_flag = readCookie("brower_check_flag");
+ if(browser_flag==="true"){ 
+      if (oldIE_browser) {      
+       browser_flag="false";
+      }
+ }
+        </script>
+
+      <link href="css/font-awesome.min.css" rel="stylesheet">
+	  <link rel="stylesheet" href="alerts/sweetalert.css" type="text/css"/>
+	</head>
+<body class="preview">
+    <div class="_blackBackGround"></div>
+    <div style="color: #f66457" class="la-ball-spin-clockwise-fade la-3x loadingImg">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+    <input type="hidden" class="filtersApplied" value="false"/>
+<header class="header">
+         <div class="blackbar">
+            <div class="container">
+               <div class="row">
+                  <div class="col-lg-6 col-md-6">
+                     <h1 class="logo_htn"><img src="images/logo-inspire-the-next.png" alt="Hitachi - Inspire the Next"></h1>
+                  </div>
+                  <div class="col-lg-6 col-md-6">
+                     <h1 class="logo_hds"><img src="images/logo-hds.png" alt="Hitachi Storage Products, Solution and Services - Hitachi Data Systems"></h1>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="container user_cont">
+            <div class="row">
+               <div class="col-lg-6 col-md-6">
+                  <h2>Service Catalog : Web View</h2>
+               </div>
+               <div class="col-lg-6 col-md-6">
+                  <div class="user_block emea" style="display:none">  <p><a class="header-link downloadFullCatalog" href="javascript:void(0)">Download Catalog</a></p></div>
+               </div>
+            </div>
+         </div>
+</header>
+    
+    <div class="row filters_container">
+        <div class="filters_content">
+            <div class="col-md-6 col-sm-5 filters_section right">
+                <i class="fa fa-filter"></i>
+                <a href="javascript:void(0)" class="filter_text">Filters</a>
+                <button type="button" class="btn btn-red btn-sm download" title="Download Catalog"><i class="fa fa-download"></i></button>
+                <button type="button" class="btn btn-red btn-sm share" title="Share Catalog"><i class="fa fa-share-alt"></i></button>
+                <span class="availableServicePages" style="display:none"></span>
+            </div>
+            <div class="col-md-6 col-sm-4 filters_section left">
+               <a href="javascript:void(0)" class="filter_text disabled">No service selected</a>
+                <button type="button" disabled="disabled" class="btn btn-red btn-sm download" title="Download Catalog"><i class="fa fa-download"></i></button>
+                <button type="button" disabled="disabled" class="btn btn-red btn-sm share" title="Share Catalog"><i class="fa fa-share-alt"></i></button>
+            </div>
+        </div>
+    </div>    
+    
+<div class="container">
+<div class="row">
+  <div class="selected_filters">
+       
+  </div>
+
+	<div class="col-md-offset-2 col-md-9 page_container">
+	<div class="mainMenu">
+		<a class="backClose" href="javascript:void(0)" ><i class="fa fa-chevron-circle-left"></i> Previous Page</a>
+                <div class="input-group page-input-container">
+                    <label class="goto">Go to</label>
+                    <input type="text" class="page-input" placeholder="#" name="page-input" id="page-input" maxlength="3">
+                    <label class="seperator">/</label>
+                    <label class="totalPages"></label>
+                </div>
+		<a href="javascript:void(0)" class="main_menu_link"><i class="fa fa-chevron-circle-up"></i>Main Menu </a>
+	</div>	
+	<div class="backTop"><a href="javascript:void(0)" title="Back to Top"><i class="fa fa-arrow-circle-up" aria-hidden="true"></i></a></div>
+    <ul class="aline">
+
+    </ul>
+    
+    <div id="mainPage" class="nav-container mainContnr custom_cont">
+<a id="downloadPDFLink" style="display: none;" href="javascript:void(0);"></a>
+	 <!--<div class="fixedDownloadPDFLink">-->		
+
+
+    <div class="modal fade bs-example-modal-lg custom-modal" id="services_modal" role="dialog" data-backdrop="static" data-keyboard="false">
+      <div class="modal-dialog">
+        <div class="modal-content">
+              <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span></i></button>
+            <h4 class="modal-title">Selected Services</h4>
+          </div>
+              <div class="modal-body">
+                  <div class="form-group">
+                     <div class="row selected_services">
+                        <div class="col-md-12 col-sm-12">
+                            <ul></ul>
+                        </div>
+                    </div>
+                   </div>
+                </div>
+          <div class="modal-footer">
+            <button type="button" data-dismiss="modal" class="btn btn-red shareServicesSelected">Share</button>
+          </div>
+            </div>
+      </div> 
+    </div>
+   <!-- Filters Modal Starts here for Preview.html-->
+   <div class="modal fade bs-example-modal-lg custom-modal" id="filters_modal">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">Filters</h4>
+          </div>
+          <div class="modal-body">
+              <form id="selectCatalogForm">
+                <div class="row">
+                    <div class="form-group col-md-4">
+                        <label>P-Code</label>
+                        <select multiple="multiple" class="selectpicker" title="Select P-Code" id="selectPcode" name="selectPcode">
+                            
+                        </select>
+                    </div>
+                    <div class="form-group col-md-8">
+                        <label>P-Code Description</label>
+                        <select multiple="multiple" class="selectpicker" title="Select P-Code Description" id="selectDescription" name="selectDescription">
+                            
+                        </select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-4">
+                        <label>Geo</label>
+                        <select multiple="multiple" class="selectpicker" title="Select Geo" id="selectGeo" name="selectGeo">
+                            
+                        </select>
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label>Category</label>
+                        <select multiple="multiple" class="selectpicker" title="Select Category" id="selectCategory" name="selectCategory">
+                            
+                        </select>
+                    
+                    </div>
+                    <div class="form-group col-md-5">
+                        <label>Domain</label>
+                        <select multiple="multiple" class="selectpicker" title="Select Domain" id="selectDomain" name="selectDomain">
+                            
+                        </select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-4">
+                        <label>Segment</label>
+                        <select multiple="multiple" class="selectpicker" title="Select Segment" id="selectSegment" name="selectSegment">
+                            
+                    </select>
+                    </div>
+                     <div class="form-group col-md-4">
+                        <label>Direct/Indirect</label>
+                        <select multiple="multiple" class="selectpicker" title="Select Direct/Indirect" id="select_dir_indir" name="select_dir_indir">
+                            <option value="Direct">Direct</option>    
+                            <option value="Indirect">Indirect</option>    
+                            <option value="Direct,Indirect">Both</option>    
+                        </select>
+                    </div>
+                     <div class="form-group col-md-4">
+                        <label>Fixed/RPQ</label>
+                        <select multiple="multiple" class="selectpicker" title="Select Fixed/RPQ" id="select_fixed_rpq" name="select_fixed_rpq">
+                            <option value="Fixed">Fixed</option>   
+                            <option value="RPQ">RPQ</option>   
+                        </select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-4">
+                        <label>Tag1</label>
+                        <select multiple="multiple" class="selectpicker" title="Select Tag1" id="selectTag1" name="selectTag1">
+                            
+                        </select>
+                    </div>
+                     <div class="form-group col-md-4">
+                        <label>Tag2</label>
+                        <select multiple="multiple" class="selectpicker" title="Select Tag2" id="selectTag2" name="selectTag2">
+                              
+                        </select>
+                    </div>
+                     <div class="form-group col-md-4">
+                        <label>Tag3</label>
+                        <select multiple="multiple" class="selectpicker" title="Select Tag3" id="selectTag3" name="selectTag3">
+                            
+                        </select>
+                    </div>
+                </div>
+                <div class="row" style="display:none">
+                        <div class="form-group col-md-2 fee_basics">
+                            <label>Fee Basics</label>
+                            <div class="input-group">
+                                <input type="number" class="form-control fee_range_min"/>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-1 range_sep"><label style="margin-top: 35px;">to</label></div>
+                        <div class="form-group col-md-2 fee_basics">
+                            <label style="visibility:hidden">Fee Basics</label>
+                            <div class="input-group">
+                                <input type="number" class="form-control fee_range_max"/>
+                            </div>
+                        </div>
+              </div>
+              </form>    
+          </div>
+          <div class="modal-footer">
+             <label class="hidePartnerLabel"><input type="checkbox" class="hidePartnerLogo"></input>Hide Partner Logo</label>
+             <button type="button" class="btn btn-primary applyFilters">Apply</button>
+          </div>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+
+
+
+		  <!-- Share Modal Starts here for Preview.html-->
+   <div class="modal fade bs-example-modal-lg custom-modal" id="share_modal" role="dialog" data-backdrop="static" data-keyboard="false">
+      <div class="modal-dialog">
+        <div class="modal-content">
+              <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span></i></button>
+            <h4 class="modal-title">Share</h4>
+          </div>
+              <div class="modal-body">
+            <form class="customer_intel">
+                  <div class="form-group">
+                     <div class="row">
+                        <div class="col-md-12 col-sm-12">
+                          <label>Send To:</label>
+                          <input type="text" id="sendto" onblur="validateMultipleEmailsCommaSeparated(this,';');" placeholder="Mail IDs should be semicolon separated" name="sendto" class="form-control">
+                        </div>
+                    </div>
+                   </div>
+                  <div class="form-group">
+                      <div class="row">
+                            <div class="col-md-12 col-sm-12">
+                          <label>CC:</label>
+                          <input type="text" id="ccmail" onblur="validateMultipleEmailsCommaSeparated(this,';');" name="ccmail"  placeholder="Mail IDs should be semicolon separated" class="form-control">
+                        </div>
+                      </div>
+                  </div>
+                  <div class="form-group">
+                <div class="row">
+                      <div class="col-md-12 col-sm-12">
+                    <label>Subject:</label>
+                    <input type="text" id="subjectMail" name="subjectMail" class="form-control" placeholder="Challenger Account Planer - Standard Chartered bank"/>
+                  </div>
+                    </div>
+              </div>
+                  <div class="form-group">
+                <div class="row">
+                      <div class="col-md-12 col-sm-12">
+                    <label>Message:</label>
+                    <textarea id="messageMail" name="messageMail" class="form-control" rows="9">
+                                </textarea>
+                  </div>
+                    </div>
+              </div>
+                </form>
+                <em>Catalog shared will contain unapproved changes.</em>
+          </div>
+              <div class="modal-footer">
+            <button type="button" data-dismiss="modal" class="btn btn-danger">Cancel</button>
+            <button type="button" class="btn btn-danger sendEmail1">Send</button>
+          </div>
+            </div>
+      </div> 
+    </div>
+		
+		
+	</div>
+
+
+
+
+	</div>
+	</div>
+	</div>
+</div>
+		<footer>
+        <script type="text/javascript">_satellite.pageBottom();</script>
+		<div class="container"><div class="row">
+			<div class="col-lg-6 col-md-6 copyright"></div>
+			<div class="col-lg-6 col-md-6 privacy_policy"><a href="http://www.hds.com/corporate/legal/?tab=tcontent6&amp;WT.ac=scm_ft_tou" target="_blank" title="Website Terms of Use">Website Terms of Use</a> | <a href="http://www.hds.com/corporate/legal/?tab=tcontent2&amp;WT.ac=scm_ft_pp" target="_blank" title="Privacy Policy">Privacy Policy</a></div>
+		</div></div>
+	</footer>
+                    
+
+<script src="js/jquery.min.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="js/jquery.slimscroll.min.js"></script>
+	
+<script src="js/bootstrap.min.js"></script>
+<script src="js/bootstrap-select.min.js"></script>
+
+
+
+<script>
+
+
+
+//=====
+$("#generatePDF").on("click",function(){
+	catalogType = $(".catType select").val();
+    $("#imgloader").show();
+    $("#generatePDF").hide();    
+	$.ajax({
+		 type: "GET",
+		 url: "scm/generate/pdf?catalogueId=" + params.catalogId + "&status=" + params.catalogType+"&hidePartnerLogo="+hidePartnerLogo,
+		 dataType: 'json'
+	 }).success(function(data){ 
+		if(data.status == true){
+            $("#imgloader").hide();
+            $("#generatePDF").show(); 
+            tmp = data.filename.split('path=');
+            tmp=tmp[1].split('title=');
+            pdfPath=tmp[0];
+            pdfName=tmp[1];
+			$('#downloadPDFLink').attr('href',"scm/download/pdf?path="+pdfPath+"&filename="+pdfName+"&status=" + params.catalogType);					
+			document.getElementById('downloadPDFLink').click();
+            
+		}else if(data.status == "false"){
+			pdfName = data.filename.split('title=');
+            pdfName = pdfName[1]
+			$("#downloadMsg .modal-body p").html(data.msg);
+			$("#downloadMsg").modal("show");
+		}
+	 })
+	/*window.open(window.location.protocol + "//" + window.location.host + "/catalogmanager/scm/generate/pdf?catalogueId=" + params.catId + "&status=" + catalogType);*/
+})
+//======
+		
+function getSearchParameters() {
+	var prmstr = window.location.search.substr(1);
+	return prmstr != null && prmstr != "" ? transformToAssocArray(prmstr) : {};
+}
+function applySVGStyle () {
+               var frameContents;
+               frameContents = $(".pdfAppendIframe").contents(); 
+               frameContents.find("#jpedal").css("-moz-transform: scale(0.613);-moz-transform-origin: 0 0;-webkit-transform: scale(0.613);-webkit-transform-origin: 0 0;");
+     }
+function transformToAssocArray(prmstr) {
+	var params = {};
+	var prmarr = prmstr.split("&");
+	for (var i = 0; i < prmarr.length; i++) {
+		var tmparr = prmarr[i].split("=");
+		params[tmparr[0]] = tmparr[1];
+	}
+	return params;
+}
+ function resizeIframe(obj) {
+    obj.style.height = obj.contentWindow.document.body.scrollHeight + 'px';
+}
+var params = getSearchParameters();		
+var pdf_upload = false;
+var pdfHtml = [];
+
+
+    
+      function loadXMLDoc(aURL,index){
+                    var xmlhttp;
+                    if (window.XMLHttpRequest){// code for IE7+, Firefox, Chrome, Opera, Safari
+                        xmlhttp=new XMLHttpRequest();
+                    }
+                    else{
+                        xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+                    }
+                    var url=""
+                    url = encodeURI(aURL);
+                    var iframe = '<iframe scrolling="no" style="height:840px;width:100%;border:none"  src='+url+' class="pdfAppendIframe" ></iframe>'
+                    xmlhttp.onreadystatechange=function(){
+                        if (xmlhttp.readyState==4 && xmlhttp.status==200){
+                             var div = document.getElementsByClassName ('pdfAppend')[index];                            
+                             div.innerHTML = iframe; 
+                        }
+                    }
+                    xmlhttp.open("GET",aURL,true);
+                    xmlhttp.send();
+            }
+    
+    var scrollTrigger = 200, // px
+    backToTop = function () {
+        var scrollTop = $(window).scrollTop();
+        if (scrollTop > scrollTrigger) {
+            $('.backTop').show();
+        } else {
+            $('.backTop').hide();
+        }
+    }; 
+    backToTop();
+    $(window).on('scroll touchmove', function () {
+        backToTop();
+    });
+    $('.backTop a').on('click', function (e) {
+            e.preventDefault();
+            $('html,body').animate({
+                scrollTop: 0
+            }, 700);
+    });
+    $(".loadingImg").show();
+    $("._blackBackGround").show();
+ $(function(){
+     
+     var edited_dat = "";
+    	$.ajax({
+				 type: "GET",
+				 url: "scm/preview/catalog?catalogueId=" + params.catalogId+ "&catalogType=" + params.catalogType,
+				 dataType: 'json',
+                 async: true,
+				 cache: false,
+				 success: function(data) {}
+			 }).done(function(data) {
+                if(data.totalServicePage > 0){
+                    $(".availableServicePages").text("Services Count: "+data.totalServicePage).show();
+                }    
+				if(data.deleted == true){
+					$("#mainPage").removeClass("mainContnr").removeClass("custom_cont");
+					$("#mainPage").addClass("notPublic");
+					$("#mainPage").html("<p>This Catalog is not available.</p>")
+					$(".mainMenu").hide();
+					 return;
+				}
+				if(data.status == "This Catalog is not available publicly"){
+					$("#mainPage").removeClass("mainContnr").removeClass("custom_cont");
+					$("#mainPage").addClass("notPublic");
+					$("#mainPage").html("<p>This Catalog is not available publicly.</p>")
+					$(".mainMenu").hide();
+				}else{
+                 var cover_page_id = data.coverpage[0].id;
+			 	 var component = '', html = "", hdslogoDiv="", hitachilogoDiv="", MpartnerLogo="", increment=1;
+
+
+			 	 if(data.coverpage!=null){
+			 	 	var coverId= data.coverpage[0].id;
+			 	 	var coverTitle=data.coverpage[0].coverTitle;
+			 	 	var isLogo=data.coverpage[0].isLogo;
+			 	 	var CoverimgSrc=data.coverpage[0].CoverimgSrc;
+
+			 	 	if(data.coverpage[0].partner[0].partnerLogo!=null){
+			 	 		var partnerLogo = data.coverpage[0].partner[0].partnerLogo;
+			 	 		var partnerPosition = data.coverpage[0].partner[0].partnerPosition;
+			 	 		MpartnerLogo = '<div class="logo_alignment '+partnerPosition+'"> <img class="show_logo" style="display:block" src="'+partnerLogo+'" alt="">  </div>'
+			 	 	}
+			 	 	else{
+
+			 	 	}
+
+			 	 	if(isLogo){
+			 	 		hdslogoDiv = '<img src="images/HDS_logo.png" alt="">';
+			 	 		hitachilogoDiv = '<img src="images/Inspire-Next_logo.png" alt="">';
+			 	 	}
+				 			 	 html = '<div class="tab-content"><div id="editor_mode" class="tab-pane fade in active"><div class="editor_banner"> <div class="banner_logo"><div class="logo_editable hds_logo">  <div class="hide_item">'+hdslogoDiv+'</div> </div> <div class="input-logo">'+MpartnerLogo+'</div> <div class="logo_editable"> <div class="hide_item"><div class="edit_overlay"></div>'+hitachilogoDiv+'</div> </div> </div> <img src="'+CoverimgSrc+'" alt="'+coverTitle+'"> <h2>'+coverTitle+'</h2> <div class="contributors-list"><p class="hds-contributors-list"></p><p class="avnet-contributors-list"></p></div> </div></div> <div id="preview_mode" class="tab-pane fade"></div> </div>'
+
+			 	} 
+  var spanHtml = "";
+ for(var ii=0; ii < data.innerpage.length; ii++){
+        component="";
+        increment = ii+increment;
+        spanHtml = '<span class="filterAttributes" pcode="'+data.innerpage[ii].pcode+'" description="'+data.innerpage[ii].description+'" category="'+data.innerpage[ii].category+'" geo="'+data.innerpage[ii].geo+'" domain="'+data.innerpage[ii].domain+'" segment="'+data.innerpage[ii].segment+'" dir_indir="'+data.innerpage[ii].dir_indir+'" fixed_rpq="'+data.innerpage[ii].fixed_rpq+'" fee_basics="'+data.innerpage[ii].fee_basics+'" selectTag1="'+data.innerpage[ii].tag_one+'" selectTag2="'+data.innerpage[ii].tag_two+'" selectTag3="'+data.innerpage[ii].tag_three+'"></span>'
+        if (data.innerpage[ii].pageTemplate == 1) {
+            if (data.innerpage[ii].component[0].htmlSrc){
+                pdfHtml.push(data.innerpage[ii].component[0].htmlSrc)
+                pdf_upload = true;
+                component +='<div data-url-page="'+data.innerpage[ii].pageId+'" class="comp11 pdfAppend"></div>'
+             }else{
+                pdf_upload = false
+                component +='<div data-url-page="'+data.innerpage[ii].pageId+'" class="comp11"> <img src="'+data.innerpage[ii].component[0].imgSrc+'"> </div>'
+            }
+            
+        } 
+         
+if (data.innerpage[ii].pageTemplate == 5) {
+      if (data.innerpage[ii].component != null) {
+              var liItem2 = "",
+                liItem3 = "",
+                liItem4 = "",
+                liItem5 = "";
+              var headingTxt = "";
+$(data.innerpage[ii].component).each(function(i, val) {
+                if (data.innerpage[ii].component[i].templateType == 0) {
+				if(data.innerpage[ii].component[i].imgSrc!=null){
+                  component += spanHtml+'<div data-url-page="'+data.innerpage[ii].pageId+'"  class="comp1 editMode_comp edcompMain" data-id="' + data.innerpage[ii].component[i].id + '"><i class="fa fa-times"></i><img src="' + data.innerpage[ii].component[i].imgSrc + '" alt="" /></div>';
+				  }else{
+				  component +='<div data-url-page="'+data.innerpage[ii].pageId+'" class="comp1 editMode_comp edcompMain" data-id="' + data.innerpage[ii].component[i].id + '"><i class="fa fa-times"></i><p style="width:100%; background:#fff; height:236px"></p></div>';
+				  }
+                } else if (data.innerpage[ii].component[i].templateType == 1) {
+				if(data.innerpage[ii].component[i].description!=null){
+                  component +='<div data-url-page="'+data.innerpage[ii].pageId+'" class="comp1 editMode_comp edcompMain" data-id="' + data.innerpage[ii].component[i].id + '"><i class="fa fa-times"></i><i  class="fa fa-pencil editme"></i><p style="width:100%; background:#fff; height:236px">' + data.innerpage[ii].component[i].description + '</p></div>';
+				  }else{
+				  component +='<div data-url-page="'+data.innerpage[ii].pageId+'" class="comp1 editMode_comp edcompMain" data-id="' + data.innerpage[ii].component[i].id + '"><i class="fa fa-times"></i><i  class="fa fa-pencil editme"></i><p style="width:100%; background:#fff; height:236px"></p></div>';
+				  }
+                } else {
+                  component +='<div data-url-page="'+data.innerpage[ii].pageId+'" class="_comp _nopreview comp1 temp0" data-id="' + data.innerpage[ii].component[i].id + '"><h1>Select Component</h1><a data-toggle="modal" class="comp_text" data-target="#comp_text" href="javascript:void(0)"><img src="images/img1.jpg" alt=""></a><a data-toggle="modal" data-target="#comp_image" class="comp_image" href="javascript:void(0)"><img src="images/img2.jpg" alt=""></a></div>';
+                }
+               })
+            
+          }
+
+}
+
+if (data.innerpage[ii].pageTemplate == 3) {
+	
+					 
+          if (data.notification == false) {
+            $(".notificationBoxClk").hide();
+          } else if (data.notification == true) {
+            $(".notificationBoxClk").show();
+          }
+                      
+              var liItem2 = "",
+                liItem3 = "",
+                liItem4 = "",
+                liItem5 = "";
+              var headingTxt = "";
+			  $(data.innerpage[ii].component).each(function(i, val) {
+                if (data.innerpage[ii].component[i].templateType == 0) {
+                  component +='<div data-url-page="'+data.innerpage[ii].pageId+'" class="comp1 editMode_comp edcompMain" data-id="' + data.innerpage[ii].component[i].id + '"><i class="fa fa-times"></i><img src="' + data.innerpage[ii].component[i].imgSrc + '" alt="" /></div>';
+                }
+				else if (data.innerpage[ii].component[i].templateType == 6) {
+                  component +='<div data-url-page="'+data.innerpage[ii].pageId+'" class="comp1 editMode_comp temp3 edcompMain" data-id="' + data.innerpage[ii].component[i].id + '"><i class="fa fa-times"></i><img src="' + data.innerpage[ii].component[i].imgSrc + '" alt="" /></div>';
+                }	else if (data.innerpage[ii].component[i].templateType == 1) {
+                  component +='<div data-url-page="'+data.innerpage[ii].pageId+'" class="comp1 editMode_comp edcompMain" data-id="' + data.innerpage[ii].component[i].id + '"><i class="fa fa-times"></i><i  class="fa fa-pencil editme"></i><p style="width:100%; background:#fff; height:236px">' + data.innerpage[ii].component[i].description + '</p></div>';
+                } else if (data.innerpage[ii].component[i].templateType == 2) {
+                  headingTxt = "";
+                  $(data.innerpage[ii].component[i].list_items).each(function(i, val) {
+				  if(val.list_item != undefined){
+                    if (val.linkUrl != null) {
+                      if (val.linkType == "repository") {
+                        liItem2 += "<li><a href='" + val.linkUrl + "' target='" + val.target + "'>" + val.list_item + "</a></li>"
+                      } else if (val.linkType == "page") {
+                        liItem2 += "<li><a href='#" + val.linkUrl + "' >" + val.list_item + "</a></li>"
+                      } else if (val.linkType == "mail") {
+                        liItem2 += "<li><a href='mailto:" + val.linkUrl + "'>" + val.list_item + "</a></li>"
+                      }
+                    } else {
+                      liItem2 += "<li>" + val.list_item + "</li>"
+                    }
+					}
+                  })
+                  if (data.innerpage[ii].component[i].heading != undefined && data.innerpage[ii].component[i].heading != null) {
+                        headingTxt = data.innerpage[ii].component[i].heading;
+                  }
+                  component += '<div data-url-page="'+data.innerpage[ii].pageId+'" class="comp2 editMode_comp2 edcompMain" data-class="comp_details" data-id="' + data.innerpage[ii].component[i].id + '" data-id="' + data.innerpage[ii].component[i].id + '"><i class="fa fa-times"></i><i  class="fa fa-pencil editme"></i><h1>' + headingTxt + '</h1><ul>' + liItem2 + '</ul> </div>';
+                  liItem2 = "";
+                } else if (data.innerpage[ii].component[i].templateType == 3) {
+                  $(data.innerpage[ii].component[i].list_items).each(function(i, val) {
+				  if(val.list_item != undefined){
+                    if (val.linkUrl != null) {
+                      if (val.linkType == "repository") {
+                        liItem3 += "<li><a href='" + val.linkUrl + "' target='" + val.target + "'>" + val.list_item + "</a></li>"
+                      } else if (val.linkType == "page") {
+                        liItem3 += "<li><a href='#" + val.linkUrl + "' >" + val.list_item + "</a></li>"
+                      } else if (val.linkType == "mail") {
+                        liItem3 += "<li><a href='mailto:" + val.linkUrl + "' >" + val.list_item + "</a></li>"
+                      }
+                    } else {
+                      liItem3 += "<li>" + val.list_item + "</li>"
+                    }
+					}
+                  })
+                  component += '<div data-url-page="'+data.innerpage[ii].pageId+'" class="comp2 editMode_comp2 edcompMain" data-id="' + data.innerpage[ii].component[i].id + '"><i class="fa fa-times"></i><i   class="fa fa-pencil editme"></i><ul>' + liItem3 + '</ul> </div>';
+                  liItem3 = "";
+                } else if (data.innerpage[ii].component[i].templateType == 4) {
+                  $(data.innerpage[ii].component[i].thumbs_text).each(function(i, val) {
+                    var valThmbTxt = "";
+                    if (val.thumbText == undefined) {
+                      valThmbTxt = "";
+                    } else {
+                      valThmbTxt = val.thumbText;
+                    }
+                    if (val.linkUrl != null) {
+                      if (val.thumbSrc != null) {
+                        if (val.linkType == "repository") {
+                          liItem4 += '<div class="thumb-con"><i class="fa fa-times"></i><img src="' + val.thumbSrc + '" alt="" /><p  style="padding-left:75px"><a href="' + val.linkUrl + '" target="' + val.target + '">' + valThmbTxt + '</a></p></div>';
+                        } else if (val.linkType == "page") {
+                          liItem4 += '<div class="thumb-con"><i class="fa fa-times"></i><img src="' + val.thumbSrc + '" alt="" /><p style="padding-left:75px"><a href="#' + val.linkUrl + '">' + valThmbTxt + '</a></p></div>';
+                        } else if (val.linkType == "mail") {
+                          liItem4 += '<div class="thumb-con"><i class="fa fa-times"></i><img src="' + val.thumbSrc + '" alt="" /><p style="padding-left:75px"><a href="mailto:' + val.linkUrl + '" target="' + val.target + '">' + valThmbTxt + '</a></p></div>';
+                        }
+                      } else {
+                        liItem4 += '<div class="thumb-con"><i class="fa fa-times"></i><p style="padding-left:75px">' + valThmbTxt + '</p></div>';
+                      }
+                    } else {
+                      liItem4 += '<div class="thumb-con"><i class="fa fa-times"></i><img src="' + val.thumbSrc + '" alt="" /><p style="padding-left:75px">' + valThmbTxt + '</p></div>';
+                    }
+                  })
+                  component +='<div data-url-page="'+data.innerpage[ii].pageId+'" class="comp2 editMode_comp2 edcompMain" data-id="' + data.innerpage[ii].component[i].id + '"><i class="fa fa-times"></i><i class="fa fa-pencil editme"></i><div>' + liItem4 + '</div></div>';
+                  liItem4 = "";
+                } else if (data.innerpage[ii].component[i].templateType == 5) {
+                  $(data.innerpage[ii].component[i].list_items).each(function(i, val) {
+				  if(val.list_item != undefined){
+                    if (val.linkUrl != null) {
+                      if (val.linkType == "repository") {
+                        liItem5 += "<li><a href='" + val.linkUrl + "' target='" + val.target + "'>" + val.list_item + "</a></li>"
+                      } else if (val.linkType == "page") {
+                        liItem5 += "<li><a href='#" + val.linkUrl + "' >" + val.list_item + "</a></li>"
+                      } else if (val.linkType == "mail") {
+                        liItem5 += "<li><a href='mailto:" + val.linkUrl + "'>" + val.list_item + "</a></li>"
+                      }
+                    } else {
+                      liItem5 += "<li>" + val.list_item + "</li>"
+                    }
+					}
+                  })
+				  
+				  if(data.innerpage[ii].component[i].compHeaderSrc==""){
+				  component += '<div data-url-page="'+data.innerpage[ii].pageId+'" class="comp2 editMode_comp2 edcompMain" data-id="' + data.innerpage[ii].component[i].id + '"><i class="fa fa-times"></i><i class="fa fa-pencil editme"></i><div class="_blankImageBox"></div><ul>' + liItem5 + '</ul></div>';
+				  }else{
+				  if(data.innerpage[ii].component[i].compHeaderSrc!=null){
+                  component +='<div data-url-page="'+data.innerpage[ii].pageId+'" class="comp2 editMode_comp2 edcompMain" data-id="' + data.innerpage[ii].component[i].id + '"><i class="fa fa-times"></i><i class="fa fa-pencil editme"></i><img class="header-banner" src="' + data.innerpage[ii].component[i].compHeaderSrc + '" alt="" /><ul>' + liItem5 + '</ul></div>';
+				  }else{
+				  component +='<div data-url-page="'+data.innerpage[ii].pageId+'" class="comp2 editMode_comp2 edcompMain" data-id="' + data.innerpage[ii].component[i].id + '"><i class="fa fa-times"></i><i class="fa fa-pencil editme"></i><div style="width:100%; float:left; height:100px"></div><ul>' + liItem5 + '</ul></div>';
+				  }
+				  }
+                  liItem5 = "";
+                } else {
+				
+                  if (i < 1) {
+                    component += '<div data-url-page="'+data.innerpage[ii].pageId+'" class="_comp _nopreview comp1 temp0" data-id="' + data.innerpage[ii].component[i].id + '"><h1>Select Component</h1><a data-toggle="modal" class="comp_text" data-target="#comp_text" href="javascript:void(0)"><img src="images/img1.jpg" alt=""></a><a data-toggle="modal" data-target="#comp_image" class="comp_image" href="javascript:void(0)"><img src="images/img2.jpg" alt=""></a></div>';
+                  } else if(i>=1 && i<3){
+					component += spanHtml+'<div data-url-page="'+data.innerpage[ii].pageId+'" class="_comp _nopreview comp2" data-id="' + data.innerpage[ii].component[i].id + '"><h1>Select Component</h1><a data-toggle="modal"  class="comp_details" data-target="#comp_details" href="javascript:void(0)"><img src="images/img3.jpg" alt=""></a><a data-toggle="modal" class="comp_details_temp2" data-target="#comp_details_temp2" href="javascript:void(0)"><img src="images/img6.jpg" alt=""></a><a data-toggle="modal" class="comp_details_temp3" data-target="#comp_details_temp3" href="javascript:void(0)"><img src="images/img7.jpg" alt=""></a><a data-toggle="modal" class="comp_details_temp4" data-target="#comp_details_temp4" href="javascript:void(0)"><img src="images/img8.jpg" alt=""></a></div>';
+				  } else {
+                    component +='<div data-url-page="'+data.innerpage[ii].pageId+'" class="_comp _nopreview comp1 temp3" data-id="' + data.innerpage[ii].component[i].id + '"><h1>Select Component</h1><a data-toggle="modal" data-target="#comp_imagedownImage" class="comp_image comp_imagedownImage" href="javascript:void(0)"><img src="images/img2.jpg" alt=""></a></div>';
+                  }
+            }   
+
+})			
+
+}
+
+
+
+if (data.innerpage[ii].pageTemplate == 4 || data.innerpage[ii].pageTemplate == 2) {
+ 
+				if (data.innerpage[ii].component != null) {
+                var liItem2 = "",
+                  liItem3 = "",
+                  liItem4 = "",
+                  liItem5 = "";
+                var headingTxt = "";
+				$(data.innerpage[ii].component).each(function(i, val) {
+                   if (data.innerpage[ii].component[i].templateType == 0) {
+                    if (data.innerpage[ii].pageTemplate != 4) {
+                      component +='<div data-url-page="'+data.innerpage[ii].pageId+'" class="comp1 editMode_comp edcompMain" data-id="' + data.innerpage[ii].component[i].id + '"><i class="fa fa-times"></i><img src="' + data.innerpage[ii].component[i].imgSrc + '" alt="" /></div>';
+                    }
+                  } else if (data.innerpage[ii].component[i].templateType == 1) {
+                    if (data.innerpage[ii].pageTemplate != 4) {
+                      component +='<div data-url-page="'+data.innerpage[ii].pageId+'" class="comp1 editMode_comp edcompMain" data-id="' + data.innerpage[ii].component[i].id + '"><i class="fa fa-times"></i><i  class="fa fa-pencil editme"></i><p style="width:100%; background:#fff; height:236px">' + data.innerpage[ii].component[i].description + '</p></div>';
+                    }
+                  } else if (data.innerpage[ii].component[i].templateType == 2) {
+                    headingTxt = "";
+                    if (data.innerpage[ii].pageTemplate == 2 || data.innerpage[ii].pageTemplate == 4) {
+                      $(data.innerpage[ii].component[i].list_items).each(function(i, val) {
+					  if(val.list_item != undefined){
+                        if (val.linkUrl != null) {
+                          if (val.linkType == "repository") {
+                            liItem2 += "<li><a href='" + val.linkUrl + "' target='" + val.target + "'>" + val.list_item + "</a></li>"
+                          } else if (val.linkType == "page") {
+                            liItem2 += "<li><a href='#" + val.linkUrl + "' >" + val.list_item + "</a></li>"
+                          } else if (val.linkType == "mail") {
+                            liItem2 += "<li><a href='mailto:" + val.linkUrl + "'>" + val.list_item + "</a></li>"
+                          }
+                        } else {
+                          liItem2 += "<li>" + val.list_item + "</li>"
+                        }
+						}
+                      })
+                      if (data.innerpage[ii].component[i].heading != undefined && data.innerpage[ii].component[i].heading != null) {
+                        headingTxt = data.innerpage[ii].component[i].heading;
+                      }
+                      component +='<div data-url-page="'+data.innerpage[ii].pageId+'" class="comp2 editMode_comp2 edcompMain" data-class="comp_details" data-id="' + data.innerpage[ii].component[i].id + '" data-id="' + data.innerpage[ii].component[i].id + '"><i class="fa fa-times"></i><i  class="fa fa-pencil editme"></i><h1>' + headingTxt + '</h1><ul>' + liItem2 + '</ul> </div>';
+                      liItem2 = "";
+                    }
+                  } else if (data.innerpage[ii].component[i].templateType == 3) {
+                    if (data.innerpage[ii].pageTemplate == 2 || data.innerpage[ii].pageTemplate == 4) {
+                      $(data.innerpage[ii].component[i].list_items).each(function(i, val) {
+					  if(val.list_item != undefined){
+                        if (val.linkUrl != null) {
+                          if (val.linkType == "repository") {
+                            liItem3 += "<li><a href='" + val.linkUrl + "' target='" + val.target + "'>" + val.list_item + "</a></li>"
+                          } else if (val.linkType == "page") {
+                            liItem3 += "<li><a href='#" + val.linkUrl + "' >" + val.list_item + "</a></li>"
+                          } else if (val.linkType == "mail") {
+                            liItem3 += "<li><a href='mailto:" + val.linkUrl + "' >" + val.list_item + "</a></li>"
+                          }
+                        } else {
+                          liItem3 += "<li>" + val.list_item + "</li>"
+                        }
+						}
+                      })
+                      component +='<div data-url-page="'+data.innerpage[ii].pageId+'" class="comp2 editMode_comp2 edcompMain" data-id="' + data.innerpage[ii].component[i].id + '"><i class="fa fa-times"></i><i   class="fa fa-pencil editme"></i><ul>' + liItem3 + '</ul> </div>';
+                      liItem3 = "";
+                    }
+                  } else if (data.innerpage[ii].component[i].templateType == 4) {
+                    if (data.innerpage[ii].pageTemplate == 2 || data.innerpage[ii].pageTemplate == 4) {
+                      $(data.innerpage[ii].component[i].thumbs_text).each(function(i, val) {
+                        var valThmbTxt = "";
+                        if (val.thumbText == undefined) {
+                          valThmbTxt = "";
+                        } else {
+                          valThmbTxt = val.thumbText;
+                        }
+						
+                        if (val.linkUrl != null) {
+                          if (val.thumbSrc != null) {
+                            if (val.linkType == "repository") {
+                              liItem4 += '<div class="thumb-con"><i class="fa fa-times"></i><img src="' + val.thumbSrc + '" alt="" /><p style="padding-left:75px"><a href="' + val.linkUrl + '" target="' + val.target + '">' + valThmbTxt + '</a></p></div>';
+                            } else if (val.linkType == "page") {
+                              liItem4 += '<div class="thumb-con"><i class="fa fa-times"></i><img src="' + val.thumbSrc + '" alt="" /><p style="padding-left:75px"><a href="#' + val.linkUrl +'" >' + valThmbTxt + '</a></p></div>';
+                            } else if (val.linkType == "mail") {
+                              liItem4 += '<div class="thumb-con"><i class="fa fa-times"></i><img src="' + val.thumbSrc + '" alt="" /><p style="padding-left:75px"><a href="mailto:' + val.linkUrl + '" target="' + val.target + '">' + valThmbTxt + '</a></p></div>';
+                            }
+                          } else {
+                            liItem4 += '<div class="thumb-con"><i class="fa fa-times"></i><p style="padding-left:75px">' + valThmbTxt + '</p></div>';
+                          }
+                        } else {
+                          liItem4 += '<div class="thumb-con"><i class="fa fa-times"></i><img src="' + val.thumbSrc + '" alt="" /><p style="padding-left:75px">' + valThmbTxt + '</p></div>';
+                        }
+                      })
+                      component +='<div data-url-page="'+data.innerpage[ii].pageId+'" class="comp2 editMode_comp2 edcompMain" data-id="' + data.innerpage[ii].component[i].id + '"><i class="fa fa-times"></i><i class="fa fa-pencil editme"></i><div>' + liItem4 + '</div></div>';
+                      liItem4 = "";
+                    }
+                  } else if (data.innerpage[ii].component[i].templateType == 5) {
+                    if (data.innerpage[ii].pageTemplate == 2 || data.innerpage[ii].pageTemplate == 4) {
+                      $(data.innerpage[ii].component[i].list_items).each(function(i, val) {
+					  if(val.list_item != undefined){
+                        if (val.linkUrl != null) {
+                          if (val.linkType == "repository") {
+                            liItem5 += "<li><a href='" + val.linkUrl + "' target='" + val.target + "'>" + val.list_item + "</a></li>"
+                          } else if (val.linkType == "page") {
+                            liItem5 += "<li><a href='#" + val.linkUrl + "' >" + val.list_item + "</a></li>"
+                          } else if (val.linkType == "mail") {
+                            liItem5 += "<li><a href='mailto:" + val.linkUrl + "'>" + val.list_item + "</a></li>"
+                          }
+                        } else {
+                          liItem5 += "<li>" + val.list_item + "</li>"
+                        }
+						}
+                      })
+					  if(data.innerpage[ii].component[i].compHeaderSrc==""){
+					  component +='<div data-url-page="'+data.innerpage[ii].pageId+'" class="comp2 editMode_comp2 edcompMain" data-id="' + data.innerpage[ii].component[i].id + '"><i class="fa fa-times"></i><i class="fa fa-pencil editme"></i><div class="_blankImageBox"></div><ul>' + liItem5 + '</ul></div>';
+                      
+					  }else{
+                      component +='<div data-url-page="'+data.innerpage[ii].pageId+'" class="comp2 editMode_comp2 edcompMain" data-id="' + data.innerpage[ii].component[i].id + '"><i class="fa fa-times"></i><i class="fa fa-pencil editme"></i><img class="header-banner" src="' + data.innerpage[ii].component[i].compHeaderSrc + '" alt="" /><ul>' + liItem5 + '</ul></div>';
+                      }
+					  liItem5 = "";
+                    }
+                  } else {
+                    if (data.innerpage[ii].pageTemplate != 4 && i < 1) {
+                      component +='<div data-url-page="'+data.innerpage[ii].pageId+'" class="_comp comp1 _nopreview temp0" data-id="' + data.innerpage[ii].component[i].id + '"><h1>Select Component</h1><a data-toggle="modal" class="comp_text" data-target="#comp_text" href="javascript:void(0)"><img src="images/img1.jpg" alt=""></a><a data-toggle="modal" data-target="#comp_image" class="comp_image" href="javascript:void(0)"><img src="images/img2.jpg" alt=""></a></div>';
+                    } else {
+                      
+                      if (data.innerpage[ii].pageTemplate == 2 || data.innerpage[ii].pageTemplate == 4) {
+                        component += '<div data-url-page="'+data.innerpage[ii].pageId+'" class="_comp _nopreview comp2" data-id="' + data.innerpage[ii].component[i].id + '"><h1>Select Component</h1><a data-toggle="modal"  class="comp_details" data-target="#comp_details" href="javascript:void(0)"><img src="images/img3.jpg" alt=""></a><a data-toggle="modal" class="comp_details_temp2" data-target="#comp_details_temp2" href="javascript:void(0)"><img src="images/img6.jpg" alt=""></a><a data-toggle="modal" class="comp_details_temp3" data-target="#comp_details_temp3" href="javascript:void(0)"><img src="images/img7.jpg" alt=""></a><a data-toggle="modal" class="comp_details_temp4" data-target="#comp_details_temp4" href="javascript:void(0)"><img src="images/img8.jpg" alt=""></a></div>';
+                      }
+                    }
+                  }
+				      
+        
+		})
+      }
+}
+        if (data.innerpage[ii].pageTemplate == 6) {
+                
+          
+            $(data.innerpage[ii].component).each(function(i, val) {                    
+                    
+               if (data.innerpage[ii].component[i].templateType == 7) {
+                         
+                  component +='<div class="comp1 editMode_comp edcompMain comp6_hg_banner" data-id="' + data.innerpage[ii].component[i].id + '" data-url-page="'+data.innerpage[ii].pageId+'" ><i class="fa fa-times"></i><img src="' + data.innerpage[ii].component[i].imgSrc + '" alt="" /></div>';                       
+                          } 
+                    else if (data.innerpage[ii].component[i].templateType == 8) {      
+                         liItem2 = "";
+                       
+                      $(data.innerpage[ii].component[i].list_items).each(function(i, val) {
+                    if(val.list_item != undefined){
+                              if (val.linkUrl != null) {
+                                if (val.linkType == "repository") {
+                                liItem2 += "<li><a href='" + val.linkUrl + "' target='" + val.target + "'>" + val.list_item + "</a></li>"
+                                } else if (val.linkType == "page") {
+                      if(data.approved == true){
+                        liItem2 += "<li><a href='#" + val.linkUrl + "' >" + val.list_item + "</a></li>"
+                      }else{
+                        liItem2 += "<li><a href='#" + val.linkUrl + "' >" + val.list_item + "</a></li>"
+                      }
+                            } else if (val.linkType == "mail") {
+                                  liItem2 += "<li><a href='mailto:" + val.linkUrl + "'>" + val.list_item + "</a></li>"
+                                }
+                              } else {
+                                liItem2 += "<li>" + val.list_item + "</li>"
+                              }
+                    }
+                            })
+                    if (data.innerpage[ii].component[i].heading != undefined) {
+                              headingTxt = data.innerpage[ii].component[i].heading;
+                            }
+                           component += '<div class="comp2 editMode_comp2 edcompMain comp6_hg" data-class="comp_details" data-id="' + data.innerpage[ii].component[i].id + '"><i class="fa fa-times"></i><i  class="fa fa-pencil editme"></i><h1>' + headingTxt + '</h1><ul>' + liItem2 + '</ul> </div>';
+                      liItem2 = "";
+                    
+                    }                       
+              
+                     
+                else if (data.innerpage[ii].component[i].templateType == 9) {
+                          liItem3 = "";
+                         $(data.innerpage[ii].component[i].list_items).each(function(i, val) {
+                        if(val.list_item != undefined){
+                                    if (val.linkUrl != null) {
+                                      if (val.linkType == "repository") {
+                                        liItem3 += "<li><a href='" + val.linkUrl + "' target='" + val.target + "'>" + val.list_item + "</a></li>"
+                                      } else if (val.linkType == "page") {
+                          if(data.approved == true){
+                            liItem3 += "<li><a href='#" + val.linkUrl + "' >" + val.list_item + "</a></li>"
+                          }else{
+                            liItem3 += "<li><a href='#" + val.linkUrl + "' >" + val.list_item + "</a></li>"
+                          }
+                              } else if (val.linkType == "mail") {
+                                liItem3 += "<li><a href='mailto:" + val.linkUrl + "' >" + val.list_item + "</a></li>"
+                              }
+                            } else {
+                              liItem3 += "<li>" + val.list_item + "</li>"
+                            }
+                }
+                          })
+                          component +='<div class="comp2 editMode_comp2 edcompMain comp6_hg" data-id="' + data.innerpage[ii].component[i].id + '" data-url-page="'+data.innerpage[ii].pageId+'"><i class="fa fa-times"></i><i   class="fa fa-pencil editme"></i><ul>' + liItem3 + '</ul> </div>';
+                          liItem3 = "";                          
+                              
+                     }
+              else if (data.innerpage[ii].component[i].templateType == 10) {
+
+                 liItem3 = "";
+                         $(data.innerpage[ii].component[i].list_items).each(function(i, val) {
+                        if(val.list_item != undefined){
+                                    if (val.linkUrl != null) {
+                                      if (val.linkType == "repository") {
+                                        liItem3 += "<li><a href='" + val.linkUrl + "' target='" + val.target + "'>" + val.list_item + "</a></li>"
+                                      } else if (val.linkType == "page") {
+                          if(data.approved == true){
+                            liItem3 += "<li><a href='#" + val.linkUrl + "' >" + val.list_item + "</a></li>"
+                          }else{
+                            liItem3 += "<li><a href='#" + val.linkUrl + "' >" + val.list_item + "</a></li>"
+                          }
+                              } else if (val.linkType == "mail") {
+                                liItem3 += "<li><a href='mailto:" + val.linkUrl + "' >" + val.list_item + "</a></li>"
+                              }
+                            } else {
+                              liItem3 += "<li>" + val.list_item + "</li>"
+                            }
+                }
+                          })
+                          component +='<div class="comp2 editMode_comp2 edcompMain comp6_hg2" data-id="' + data.innerpage[ii].component[i].id + '" data-url-page="'+data.innerpage[ii].pageId+'"><i class="fa fa-times"></i><i   class="fa fa-pencil editme"></i><ul>' + liItem3 + '</ul> </div>'; 
+                          liItem3 = "";      
+                           
+          
+                 }
+              else if (data.innerpage[ii].component[i].templateType == 11) {
+                    component +='<div class="comp2 editMode_comp edcompMain comp6_hg2" data-id="' + data.innerpage[ii].component[i].id + '" data-url-page="'+data.innerpage[ii].pageId+'"><i class="fa fa-times"></i><img src="' + data.innerpage[ii].component[i].imgSrc + '" alt="" /></div>';
+                 }  
+
+                   else 
+                 {
+                  
+                   if (i < 1) {
+
+
+
+
+                 component += '<div class="_comp comp6 _nopreview temp7" data-id="' + data.innerpage[ii].component[i].id + '" data-url-page="'+data.innerpage[ii].pageId+'"><a data-toggle="modal" data-target="#comp_image_6" class="comp_image_6" href="javascript:void(0)"><img src="images/img2.jpg" alt=""></a></div>';
+                       } else if (i>=1 && i<3)
+                       {
+                      component += '<div class="_comp _nopreview comp6_2" data-id="' + data.innerpage[ii].component[i].id + '" data-url-page="'+data.innerpage[ii].pageId+'"><h1>Select Component</h1><a data-toggle="modal" class="comp_details_6_title" data-target="#comp_details_6_title" href="javascript:void(0)"><img src="images/img3.jpg" alt=""></a><a data-toggle="modal" class="comp_details_temp6" data-target="#comp_details_temp6" href="javascript:void(0)"><img src="images/img6.jpg" alt=""></a></div>';
+                    }
+                     else
+                     {
+                      component += '<div class="_comp comp1 comp6_3 _nopreview temp0" data-id="' + data.innerpage[ii].component[i].id + '" data-url-page="'+data.innerpage[ii].pageId+'"><a data-toggle="modal" data-target="#comp_image" class="comp_image" href="javascript:void(0)"><img src="images/img2.jpg" alt=""></a><a data-toggle="modal" class="comp_details_temp6_3" data-target="#comp_details_temp6_3" href="javascript:void(0)"><img src="images/img6.jpg" alt=""></a></div>';
+
+                 } 
+                 //Class Name has been changed
+                 
+                 }  
+                  
+
+               });
+        }
+     
+     
+     
+               
+      if(data.innerpage[ii].pageTemplate == 7) {  
+         if (data.innerpage[ii].component != null) {
+              var liItem2 = "",
+                liItem3 = "",
+                liItem4 = "",
+                liItem5 = "";
+              var headingTxt = "";
+        
+         if(data.innerpage[ii].visibility == undefined)
+              {
+               data.innerpage[ii].visibility = "";                   
+              }else
+             {                
+               data.innerpage[ii].visibility = data.innerpage[ii].visibility; 
+             }
+          
+        //alert(data.innerpage[ii].visibility);
+            
+        $(data.innerpage[ii].component).each(function(i, val) { 
+            
+             
+            if (data.innerpage[ii].component[i].templateType == 18) {
+                       component += '<div class="comp1 editMode_comp edcompMain comp6_hg_banner" id="' + data.innerpage[ii].component[i].id + '"><i class="fa fa-times"></i><img src="' + data.innerpage[ii].component[i].imgSrc+'" alt="" /></div>';  
+                        }
+                
+             
+              else if (data.innerpage[ii].component[i].templateType == 12) {
+                          liItem2 = "";
+                       
+                      $(data.innerpage[ii].component[i].list_items  ).each(function(i, val) {
+                    if(val.list_item != undefined){
+                              if (val.linkUrl != null) {
+                                if (val.linkType == "repository") {
+                                liItem2 += "<li><a href='" + val.linkUrl + "' target='" + val.target + "'>" + val.list_item + "</a></li>"
+                                } else if (val.linkType == "page") {
+                      if(data.approved == true){
+                        liItem2 += "<li><a href='preview.html?catalogId=" + params.catId + "&catalogType=unapproved&go=" + val.linkUrl + "' target='" + val.target + "'>" + val.list_item + "</a></li>"
+                      }else{
+                        liItem2 += "<li><a href='preview.html?catalogId=" + params.catId + "&catalogType=unapproved&go=" + val.linkUrl + "' target='" + val.target + "'>" + val.list_item +"</a></li>"
+                      }
+                            } else if (val.linkType == "mail") {
+                                  liItem2 += "<li><a href='mailto:" + val.linkUrl + "'>" + val.list_item + "</a></li>"
+                                }
+                              } else {
+                                liItem2 += "<li>" + val.list_item + "</li>"
+                              }
+                    }
+                            })
+                    if (data.innerpage[ii].component[i].heading != undefined) {
+                              headingTxt = data.innerpage[ii].component[i].heading;
+                            }else {headingTxt = "";}
+               component += '<div class="comp2 editMode_comp2 edcompMain comp6_7hg" data-class="comp_details" id="' + data.innerpage[ii].component[i].id  + '"><i class="fa fa-times"></i><i  class="fa fa-pencil editme"></i><h1>' + headingTxt + '</h1><ul>' + liItem2 + '</ul> </div>';
+               }
+                    
+                else if (data.innerpage[ii].component[i].templateType == 13) {
+                          liItem3 = "";
+                         if(val.linkUrl == undefined)
+                              {                                  
+                               val.linkUrl = "";   
+                              }
+                           else
+                                {                                    
+                                 val.linkUrl = val.linkUrl;   
+                                }
+                             if(val.linkType == undefined)
+                              {                                  
+                               val.linkType = "";   
+                              }
+                           else
+                                {                                    
+                                 val.linkType = val.linkType;   
+                                }
+                         $(data.innerpage[ii].component[i].list_items).each(function(i, val) {
+                        if(val.list_item != undefined){
+                                    if (val.linkUrl != null) {
+                                      if (val.linkType == "repository") {
+                                        liItem3 += "<li><a href='" + val.linkUrl + "' target='" + val.target + "'>" + val.list_item + "</a></li>"
+                                      } else if (val.linkType == "page") {
+                          if(data.approved == true){
+                            liItem3 += "<li><a href='preview.html?catalogId=" + params.catId + "&catalogType=unapproved&go=" + val.linkUrl + "' target='" + val.target + "'>" + val.list_item + "</a></li>"
+                          }else{
+                            liItem3 += "<li><a href='preview.html?catalogId=" + params.catId + "&catalogType=unapproved&go=" + val.linkUrl + "' target='" + val.target + "'>" + val.list_item +"</a></li>"
+                          }
+                              } else if (val.linkType == "mail") {
+                                liItem3 += "<li><a href='mailto:" + val.linkUrl + "' >" + val.list_item + "</a></li>"
+                              }
+                            } else {
+                              liItem3 += "<li>" + val.list_item + "</li>"
+                            }
+                }
+                          })
+                            component += '<div class="comp2 editMode_comp2 edcompMain comp6_7hg" data-class="comp_details" id="' + data.innerpage[ii].component[i].id + '"><i class="fa fa-times"></i><i   class="fa fa-pencil editme"></i><ul>' + liItem3 + '</ul> </div>';
+                          liItem3 = ""; 
+                  
+                              
+                     }
+                 else if (data.innerpage[ii].component[i].templateType == 14) {
+                        liItem2 = "";
+                       
+                      $(data.innerpage[ii].component[i].list_items).each(function(i, val) {
+                    if(val.list_item != undefined){
+                              if (val.linkUrl != null) {
+                                if (val.linkType == "repository") {
+                                liItem2 += "<li><a href='" + val.linkUrl + "' target='" + val.target + "'>" + val.list_item + "</a></li>"
+                                } else if (val.linkType == "page") {
+                      if(data.approved == true){
+                        liItem2 += "<li><a href='preview.html?catalogId=" + params.catId + "&catalogType=unapproved&go=" + val.linkUrl + "' target='" + val.target + "'>" + val.list_item + "</a></li>"
+                      }else{
+                        liItem2 += "<li><a href='preview.html?catalogId=" + params.catId + "&catalogType=unapproved&go=" + val.linkUrl + "' target='" + val.target + "'>" + val.list_item +"</a></li>"
+                      }
+                            } else if (val.linkType == "mail") {
+                                  liItem2 += "<li><a href='mailto:" + val.linkUrl + "'>" + val.list_item + "</a></li>"
+                                }
+                              } else {
+                                liItem2 += "<li>" + val.list_item + "</li>"
+                              }
+                    }
+                            })
+                    if (data.innerpage[ii].component[i].heading != undefined) {
+                              headingTxt = data.innerpage[ii].component[i].heading;
+                            }else {headingTxt = "";}
+                     
+           
+if (localStorage.getItem('roleType') != null) 
+    {
+    if ((localStorage.getItem('roleType')== 'Catalogue Manager') && (data.innerpage[ii].visibility == "partner") && (i > 2 && i < 5)) 
+            { 
+            component += '<div class="comp7p editMode_comp2 edcompMain comp7_hg" data-class="comp_details" id="' + data.innerpage[ii].component[i].id + '"><i class="fa fa-times"></i><i  class="fa fa-pencil editme"></i><h1>' + headingTxt + '</h1><ul>' + liItem2 + '</ul> </div>';
+            }
+    else if ((localStorage.getItem('roleType')== 'Catalogue Manager') && (data.innerpage[ii].visibility == "partner") && (i > 1 && i < 3)) 
+            { 
+            component += '<div class="comp7t editMode_comp2 edcompMain comp7_hg" data-class="comp_details" id="' + data.innerpage[ii].component[i].id + '"><i class="fa fa-times"></i><i  class="fa fa-pencil editme"></i><h1>' + headingTxt + '</h1><ul>' + liItem2 + '</ul> </div>';
+            }
+else if ((localStorage.getItem('roleType')== 'Catalogue Manager') && (data.innerpage[ii].visibility == "internal") && ((i > 2 && i < 4) || (i > 4 && i < 6)) )
+            { 
+          
+            component += '<div class="comp7p editMode_comp2 edcompMain comp7_hg" data-class="comp_details" id="' + data.innerpage[ii].component[i].id + '"><i class="fa fa-times"></i><i  class="fa fa-pencil editme"></i><h1>' + headingTxt + '</h1><ul>' + liItem2 + '</ul> </div>';
+            }
+else if ((localStorage.getItem('roleType')== 'Catalogue Manager') && (data.innerpage[ii].visibility == "internal") && (i > 1 && i < 3))
+            { 
+         
+            component += '<div class="comp7t editMode_comp2 edcompMain comp7_hg" data-class="comp_details" id="' + data.innerpage[ii].component[i].id + '"><i class="fa fa-times"></i><i  class="fa fa-pencil editme"></i><h1>' + headingTxt + '</h1><ul>' + liItem2 + '</ul> </div>';
+            }
+else if ((localStorage.getItem('roleType')== 'Catalogue Manager') && (data.innerpage[ii].visibility == "partner, internal") && (i > 2 && i < 6))
+            { 
+            component += '<div class="comp7p editMode_comp2 edcompMain comp7_hg" data-class="comp_details" id="' + data.innerpage[ii].component[i].id + '"><i class="fa fa-times"></i><i  class="fa fa-pencil editme"></i><h1>' + headingTxt + '</h1><ul>' + liItem2 + '</ul> </div>';
+            }
+else if ((localStorage.getItem('roleType')== 'Catalogue Manager') && (data.innerpage[ii].visibility == "partner, internal") && (i > 1 && i < 3))
+            { 
+      
+            component += '<div class="comp7t editMode_comp2 edcompMain comp7_hg" data-class="comp_details" id="' + data.innerpage[ii].component[i].id + '"><i class="fa fa-times"></i><i  class="fa fa-pencil editme"></i><h1>' + headingTxt + '</h1><ul>' + liItem2 + '</ul> </div>';
+            }
+ else if ((localStorage.getItem('roleType')== 'Catalogue Manager') && (data.innerpage[ii].visibility == "") && (i > 2 && i < 4))
+            { 
+            component += '<div class="comp7p editMode_comp2 edcompMain comp7_hg" data-class="comp_details" id="' + data.innerpage[ii].component[i].id + '"><i class="fa fa-times"></i><i  class="fa fa-pencil editme"></i><h1>' + headingTxt + '</h1><ul>' + liItem2 + '</ul> </div>';
+            }
+else if ((localStorage.getItem('roleType')== 'Catalogue Manager') && (data.innerpage[ii].visibility == "") && (i > 1 && i < 3))
+            { 
+            component += '<div class="comp7t editMode_comp2 edcompMain comp7_hg" data-class="comp_details" id="' + data.innerpage[ii].component[i].id + '"><i class="fa fa-times"></i><i  class="fa fa-pencil editme"></i><h1>' + headingTxt + '</h1><ul>' + liItem2 + '</ul> </div>';
+            }
+else if ((localStorage.getItem('roleType')== 'Partner') && (data.innerpage[ii].visibility == "") && (i > 1 && i < 3))
+            { 
+            component += '<div class="comp7t editMode_comp2 edcompMain comp7_hg" data-class="comp_details" id="' + data.innerpage[ii].component[i].id + '"><i class="fa fa-times"></i><i  class="fa fa-pencil editme"></i><h1>' + headingTxt + '</h1><ul>' + liItem2 + '</ul> </div>';
+            }
+else if ((localStorage.getItem('roleType')== 'Partner') && (data.innerpage[ii].visibility == "") && (i > 2 && i < 4))
+            { 
+            component += '<div class="comp7p editMode_comp2 edcompMain comp7_hg" data-class="comp_details" id="' + data.innerpage[ii].component[i].id + '"><i class="fa fa-times"></i><i  class="fa fa-pencil editme"></i><h1>' + headingTxt + '</h1><ul>' + liItem2 + '</ul> </div>';
+            }
+else if ((localStorage.getItem('roleType')== 'Partner') && (data.innerpage[ii].visibility == "partner") && (i > 2 && i < 5))
+            { 
+            component += '<div class="comp7p editMode_comp2 edcompMain comp7_hg" data-class="comp_details" id="' + data.innerpage[ii].component[i].id + '"><i class="fa fa-times"></i><i  class="fa fa-pencil editme"></i><h1>' + headingTxt + '</h1><ul>' + liItem2 + '</ul> </div>';
+            }
+else if ((localStorage.getItem('roleType')== 'Partner') && (data.innerpage[ii].visibility == "partner") && (i > 1 && i < 3))
+            { 
+            component += '<div class="comp7t editMode_comp2 edcompMain comp7_hg" data-class="comp_details" id="' + data.innerpage[ii].component[i].id + '"><i class="fa fa-times"></i><i  class="fa fa-pencil editme"></i><h1>' + headingTxt + '</h1><ul>' + liItem2 + '</ul> </div>';
+            }
+else if ((localStorage.getItem('roleType')== 'Partner') && ((data.innerpage[ii].visibility == "internal") || (data.innerpage[ii].visibility == "")) && (i > 2 && i < 4))
+            { 
+            component += '<div class="comp7p editMode_comp2 edcompMain comp7_hg" data-class="comp_details" id="' + data.innerpage[ii].component[i].id + '"><i class="fa fa-times"></i><i  class="fa fa-pencil editme"></i><h1>' + headingTxt + '</h1><ul>' + liItem2 + '</ul> </div>';
+            }
+else if ((localStorage.getItem('roleType')== 'Partner') && ((data.innerpage[ii].visibility == "internal") || (data.innerpage[ii].visibility == "")  ) && (i > 1 && i < 3))
+            { 
+            component += '<div class="comp7t editMode_comp2 edcompMain comp7_hg" data-class="comp_details" id="' + data.innerpage[ii].component[i].id + '"><i class="fa fa-times"></i><i  class="fa fa-pencil editme"></i><h1>' + headingTxt + '</h1><ul>' + liItem2 + '</ul> </div>';
+            }
+else if ((localStorage.getItem('roleType') == 'Partner') && (data.innerpage[ii].visibility == "partner, internal") && (i > 1 && i < 3))  
+              {
+   component += '<div class="comp7t editMode_comp2 edcompMain comp7_hg" data-class="comp_details" id="' + data.innerpage[ii].component[i].id + '"><i class="fa fa-times"></i><i  class="fa fa-pencil editme"></i><h1>' + headingTxt + '</h1><ul>' + liItem2 + '</ul> </div>';                     
+              }
+else if ((localStorage.getItem('roleType') == 'Partner') && (data.innerpage[ii].visibility == "partner, internal") && (i > 2 && i < 5))  
+              {
+   component += '<div class="comp7p editMode_comp2 edcompMain comp7_hg" data-class="comp_details" id="' + data.innerpage[ii].component[i].id + '"><i class="fa fa-times"></i><i  class="fa fa-pencil editme"></i><h1>' + headingTxt + '</h1><ul>' + liItem2 + '</ul> </div>';                     
+              }
+
+    else if ((localStorage.getItem('roleType') == 'Guest') && ((data.innerpage[ii].visibility == "partner") || (data.innerpage[ii].visibility == "partner")) && (i > 1 && i < 3))  
+              {
+   component += '<div class="comp7t editMode_comp2 edcompMain comp7_hg" data-class="comp_details" id="' + data.innerpage[ii].component[i].id + '"><i class="fa fa-times"></i><i  class="fa fa-pencil editme"></i><h1>' + headingTxt + '</h1><ul>' + liItem2 + '</ul> </div>';                     
+              }
+    else if ((localStorage.getItem('roleType') == 'Guest') && ((data.innerpage[ii].visibility == "partner") || (data.innerpage[ii].visibility == "partner")) && (i > 2 && i < 4))  
+          {
+    component += '<div class="comp7p editMode_comp2 edcompMain comp7_hg" data-class="comp_details" id="' + data.innerpage[ii].component[i].id + '"><i class="fa fa-times"></i><i  class="fa fa-pencil editme"></i><h1>' + headingTxt + '</h1><ul>' + liItem2 + '</ul> </div>';                     
+          }
+
+else if ((localStorage.getItem('roleType') == 'Guest') && ((data.innerpage[ii].visibility == "internal") || (data.innerpage[ii].visibility == "partner, internal"))&& ((i > 2 && i < 4) || (i > 4 && i < 6)))  
+              {
+   component += '<div class="comp7p editMode_comp2 edcompMain comp7_hg" data-class="comp_details" id="' + data.innerpage[ii].component[i].id + '"><i class="fa fa-times"></i><i  class="fa fa-pencil editme"></i><h1>' + headingTxt + '</h1><ul>' + liItem2 + '</ul> </div>';                     
+              }
+else if ((localStorage.getItem('roleType') == 'Guest') && ((data.innerpage[ii].visibility == "internal") || (data.innerpage[ii].visibility == "partner, internal")) && (i > 1 && i < 3) )
+              {
+   component += '<div class="comp7t editMode_comp2 edcompMain comp7_hg" data-class="comp_details" id="' + data.innerpage[ii].component[i].id + '"><i class="fa fa-times"></i><i  class="fa fa-pencil editme"></i><h1>' + headingTxt + '</h1><ul>' + liItem2 + '</ul> </div>';                     
+              }
+ else if ((localStorage.getItem('roleType') == 'Guest') && ((data.innerpage[ii].visibility == "") || (data.innerpage[ii].visibility == "partner"))  && (i > 2 && i < 4))  
+              {
+     component += '<div class="comp7p editMode_comp2 edcompMain comp7_hg" data-class="comp_details" id="' + data.innerpage[ii].component[i].id + '"><i class="fa fa-times"></i><i  class="fa fa-pencil editme"></i><h1>' + headingTxt + '</h1><ul>' + liItem2 + '</ul> </div>';                          
+              }
+ else if ((localStorage.getItem('roleType') == 'Guest') && ((data.innerpage[ii].visibility == "") || (data.innerpage[ii].visibility == "partner"))  && (i > 1 && i < 3))  
+              {
+     component += '<div class="comp7t editMode_comp2 edcompMain comp7_hg" data-class="comp_details" id="' + data.innerpage[ii].component[i].id + '"><i class="fa fa-times"></i><i  class="fa fa-pencil editme"></i><h1>' + headingTxt + '</h1><ul>' + liItem2 + '</ul> </div>';                          
+              }
+              else{                         
+            component += '<div class="comp7blk editMode_comp2 edcompMain comp7_hg" data-class="comp_details" id="' + data.innerpage[ii].component[i].id + '"></div>';
+             } 
+    }
+                     else 
+                         
+                         {
+                             
+                     if(i > 1 && i < 3)
+                         {
+                       component += '<div class="comp7t editMode_comp2 edcompMain comp7_hg" data-class="comp_details" id="' + data.innerpage[ii].component[i].id + '"><i class="fa fa-times"></i><i  class="fa fa-pencil editme"></i><h1>' + headingTxt + '</h1><ul>' + liItem2 + '</ul> </div>';    
+                         }
+                                      
+                     else if(i > 2 && i < 4)
+                         {
+                       component += '<div class="comp7p editMode_comp2 edcompMain comp7_hg" data-class="comp_details" id="' + data.innerpage[ii].component[i].id + '"><i class="fa fa-times"></i><i  class="fa fa-pencil editme"></i><h1>' + headingTxt + '</h1><ul>' + liItem2 + '</ul> </div>';    
+                         }
+                        else{
+                           component += '<div class="comp7blk editMode_comp2 edcompMain comp7_hg" data-class="comp_details" id="' + data.innerpage[ii].component[i].id  + '"></div>';                      
+                        }            
+                         
+                                       
+                         }
+                              
+                     }
+            
+            else if (data.innerpage[ii].component[i].templateType == 16) {  
+                    liItem4 = "";
+                
+                       $(data.innerpage[ii].component[i].thumbs_text).each(function(i, val) {
+                        var valThmbTxt = "";
+                        if (val.thumbText == undefined) {
+                          valThmbTxt = "";
+                        } else {
+                          valThmbTxt = val.thumbText;
+                        }
+                                    
+                   
+                        if (val.linkUrl != null ) {
+                      if (val.thumbSrc != null && val.thumbSrc != "") {
+                            if (val.linkType == "repository") {
+                              liItem4 += '<div class="thumb-con-7 clearfix"><i class="fa fa-times"></i><div class="imgholder"><img src="' + val.thumbSrc + '" alt="" /></div><p><a href="' + val.linkUrl + '" target="' + val.target + '">' + valThmbTxt + '</a></p></div>';
+                            } else if (val.linkType == "page") {
+                              liItem4 += '<div class="thumb-con-7 clearfix"><i class="fa fa-times"></i><div class="imgholder"><img src="' + val.thumbSrc + '" alt="" /></div><p><a href="preview.html?catalogId=' + val.linkUrl  + "&catalogType=unapproved&go=" + '&go=' + val.linkUrl + '" target="' + val.target + '">' + valThmbTxt + '</a></p></div>';
+                            } else if (val.linkType == "mail") {
+                              liItem4 += '<div class="thumb-con-7 clearfix"><i class="fa fa-times"></i><div class="imgholder"><img src="' + val.thumbSrc + '" alt="" /></div><p><a href="mailto:' + val.linkUrl + '" target="' + val.target + '">' + valThmbTxt + '</a></p></div>';
+                            }
+                          } else {
+
+                             if (val.linkType == "repository") {
+                              liItem4 += '<div class="thumb-con-7 clearfix"><i class="fa fa-times"></i><p style="padding-left:77px;"><a href="' + val.linkUrl + '" target="' + val.target + '">' + valThmbTxt + '</a></p></div>';
+
+                            } else if (val.linkType == "page") {
+                              liItem4 += '<div class="thumb-con-7 clearfix"><i class="fa fa-times"></i><p style="padding-left:77px;"><a href="preview.html?catalogueId=' + val.linkUrl + '&go=' + val.linkUrl + '" target="' + val.target + '">' + valThmbTxt + '</a></p></div>';
+                              
+                              } else if (val.linkType == "mail") {
+                                liItem4 += '<div class="thumb-con-7 clearfix"><i class="fa fa-times"></i><p style="padding-left:77px;"><a href="mailto:' + val.linkUrl + '" target="' + val.target + '">' + valThmbTxt + '</a></p></div>';
+
+                              }                           
+                          }
+                        } else {
+                           if(val.thumbSrc != undefined && val.thumbSrc != "undefined" && val.thumbSrc != null){
+                              liItem4 += '<div class="thumb-con-7 clearfix"><i class="fa fa-times"></i><div class="imgholder"><img src="' + val.thumbSrc + '" alt="" /></div><p>' + valThmbTxt + '</p></div>';
+                           }else{
+                              liItem4 += '<div class="thumb-con-7 clearfix"><i class="fa fa-times"></i><div class="imgholder"></div><p style="padding-left:77px;">' + valThmbTxt + '</p></div>';
+                           }
+                          
+                        }
+                      })
+             
+                       if (data.innerpage[ii].component[i].heading != undefined) {
+                              headingTxt = data.innerpage[ii].component[i].heading;
+                            }else {headingTxt = " ";}
+              
+                                       
+  if (localStorage.getItem('roleType') != null) 
+    {       
+         if ((localStorage.getItem('roleType')== 'Catalogue Manager') && (data.innerpage[ii].visibility == "" ) && (i > 2 && i < 4))  
+                   { 
+                     component += '<div class="comp7p editMode_comp2 edcompMain comp7_g" data-class="comp_details" id="' + data.innerpage[ii].component[i].id + '"><i class="fa fa-times"></i><i class="fa fa-pencil editme"></i><h1>' + headingTxt + '</h1><div>' + liItem4 + '</div></div>';
+                    liItem4 = "";
+                   }
+
+         else if ((localStorage.getItem('roleType')== 'Catalogue Manager') && (data.innerpage[ii].visibility == "partner" ) && (i > 2 && i < 5))  
+                   { 
+                     component += '<div class="comp7p editMode_comp2 edcompMain comp7_g" data-class="comp_details" id="' + data.innerpage[ii].component[i].id + '"><i class="fa fa-times"></i><i class="fa fa-pencil editme"></i><h1>' + headingTxt + '</h1><div>' + liItem4 + '</div></div>';
+                    liItem4 = "";
+                   }
+      else if ((localStorage.getItem('roleType')== 'Catalogue Manager') && (data.innerpage[ii].visibility == "internal" ) && ((i > 2 && i < 4) || (i > 4 && i < 6)))  
+           { 
+             component += '<div class="comp7p editMode_comp2 edcompMain comp7_g" data-class="comp_details" id="' + data.innerpage[ii].component[i].id + '"><i class="fa fa-times"></i><i class="fa fa-pencil editme"></i><h1>' + headingTxt + '</h1><div>' + liItem4 + '</div></div>';
+            liItem4 = "";
+           }
+           else if ((localStorage.getItem('roleType')== 'Catalogue Manager') && (data.innerpage[ii].visibility == "partner, internal" ) &&  (i > 2 && i < 6))  
+           { 
+             component += '<div class="comp7p editMode_comp2 edcompMain comp7_g" data-class="comp_details" id="' + data.innerpage[ii].component[i].id + '"><i class="fa fa-times"></i><i class="fa fa-pencil editme"></i><h1>' + headingTxt + '</h1><div>' + liItem4 + '</div></div>';
+            liItem4 = "";
+           }
+  else if ((localStorage.getItem('roleType')== 'Partner') && (data.innerpage[ii].visibility == "internal" ) &&  (i > 2 && i < 4))  
+           { 
+             component += '<div class="comp7p editMode_comp2 edcompMain comp7_g" data-class="comp_details" id="' + data.innerpage[ii].component[i].id + '"><i class="fa fa-times"></i><i class="fa fa-pencil editme"></i><h1>' + headingTxt + '</h1><div>' + liItem4 + '</div></div>';
+            liItem4 = "";
+           }
+   else if ((localStorage.getItem('roleType')== 'Partner') && (data.innerpage[ii].visibility == "partner" ) &&  (i > 2 && i < 5))  
+           { 
+             component += '<div class="comp7p editMode_comp2 edcompMain comp7_g" data-class="comp_details" id="' + data.innerpage[ii].component[i].id + '"><i class="fa fa-times"></i><i class="fa fa-pencil editme"></i><h1>' + headingTxt + '</h1><div>' + liItem4 + '</div></div>';
+            liItem4 = "";
+           }
+     else if ((localStorage.getItem('roleType')== 'Partner') && (data.innerpage[ii].visibility == "partner, internal" ) &&  (i > 2 && i < 5))  
+           { 
+             component += '<div class="comp7p editMode_comp2 edcompMain comp7_g" data-class="comp_details" id="' + data.innerpage[ii].component[i].id + '"><i class="fa fa-times"></i><i class="fa fa-pencil editme"></i><h1>' + headingTxt + '</h1><div>' + liItem4 + '</div></div>';
+            liItem4 = "";
+           }
+         else if ((localStorage.getItem('roleType')== 'Partner') && (data.innerpage[ii].visibility == "" ) &&  (i > 2 && i < 4))  
+           { 
+             component += '<div class="comp7p editMode_comp2 edcompMain comp7_g" data-class="comp_details" id="' + data.innerpage[ii].component[i].id + '"><i class="fa fa-times"></i><i class="fa fa-pencil editme"></i><h1>' + headingTxt + '</h1><div>' + liItem4 + '</div></div>';
+            liItem4 = "";
+           }
+    else if ((localStorage.getItem('roleType')== 'Guest') && ((data.innerpage[ii].visibility == "" ) || (data.innerpage[ii].visibility == "partner" ))  &&  (i > 2 && i < 4))  
+           { 
+             component += '<div class="comp7p editMode_comp2 edcompMain comp7_g" data-class="comp_details" id="' + data.innerpage[ii].component[i].id + '"><i class="fa fa-times"></i><i class="fa fa-pencil editme"></i><h1>' + headingTxt + '</h1><div>' + liItem4 + '</div></div>';
+            liItem4 = "";
+           }
+  else if ((localStorage.getItem('roleType')== 'Guest') && ((data.innerpage[ii].visibility == "internal" ) || (data.innerpage[ii].visibility == "partner, internal" ))  &&  ((i > 2 && i < 4) || (i > 4 && i < 6)))   
+       { 
+         component += '<div class="comp7p editMode_comp2 edcompMain comp7_g" data-class="comp_details" id="' + data.innerpage[ii].component[i].id + '"><i class="fa fa-times"></i><i class="fa fa-pencil editme"></i><h1>' + headingTxt + '</h1><div>' + liItem4 + '</div></div>';
+        liItem4 = "";
+       }
+            
+                         
+                  
+                 else
+                      {
+                       component += '<div class="comp7blk editMode_comp2 edcompMain comp7_hg" data-class="comp_details" id="' + data.innerpage[ii].component[i].id  + '"></div>';                              
+                      }
+    }
+                else
+                    {
+                     if(i > 2 && i < 4)
+                         {
+                      component += '<div class="comp7p editMode_comp2 edcompMain comp7_g" data-class="comp_details" id="' + data.innerpage[ii].component[i].id + '"><i class="fa fa-times"></i><i class="fa fa-pencil editme"></i><h1>' + headingTxt + '</h1><div>' + liItem4 + '</div></div>';
+                      liItem4 = ""; 
+                         }
+                        else{
+                           component += '<div class="comp7blk editMode_comp2 edcompMain comp7_hg" data-class="comp_details" id="' + data.innerpage[ii].component[i].id  + '"></div>';                      
+                        }
+                    }
+                  
+                      
+                          } 
+           //End of if condition
+                                         
+                else if (data.innerpage[ii].component[i].templateType == 15) {
+                          liItem3 = "";
+                         $(data.innerpage[ii].component[i].list_items).each(function(i, val) {
+                        if(val.list_item != undefined){
+                                    if (val.linkUrl != null) {
+                                      if (val.linkType == "repository") {
+                                        liItem3 += "<li><a href='" + val.linkUrl + "' target='" + val.target + "'>" + val.list_item + "</a></li>"
+                                      } else if (val.linkType == "page") {
+                          if(data.approved == true){
+                            liItem3 += "<li><a href='preview.html?catalogId=" + params.catId + "&catalogType=unapproved&go=" + val.linkUrl + "' target='" + val.target + "'>" + val.list_item + "</a></li>"
+                          }else{
+                            liItem3 += "<li><a href='preview.html?catalogId=" + params.catId + "&catalogType=unapproved&go=" + val.linkUrl + "' target='" + val.target + "'>" + val.list_item +"</a></li>"
+                          }
+                              } else if (val.linkType == "mail") {
+                                liItem3 += "<li><a href='mailto:" + val.linkUrl + "' >" + val.list_item + "</a></li>"
+                              }
+                            } else {
+                              liItem3 += "<li>" + val.list_item + "</li>"
+                            }
+                }
+                          })
+                          component += '<div class="comp7t editMode_comp2 edcompMain comp7_hg" id="' + data.innerpage[ii].component[i].id  + '"><i class="fa fa-times"></i><i   class="fa fa-pencil editme"></i><ul>' + liItem3 + '</ul> </div>';
+                          liItem3 = ""; 
+                  
+                              
+                     }
+             else  if (data.innerpage[ii].component[i].templateType == 17) {
+                
+                                                 
+  if (localStorage.getItem('roleType') != null) 
+    {
+                     
+            if ((localStorage.getItem('roleType') == 'Catalogue Manager') && (data.innerpage[ii].visibility == "") && (i>2 && i <4))  
+                          {
+                component += '<div class="comp7p editMode_comp edcompMain" id="' + data.innerpage[ii].component[i].id + '"><i class="fa fa-times"></i><img src="' + data.innerpage[ii].component[i].imgSrc +'" alt="" /></div>';                         
+                          }
+            else if ((localStorage.getItem('roleType') == 'Catalogue Manager') && (data.innerpage[ii].visibility == "partner") && (i>2 && i <5))  
+                          {
+                component += '<div class="comp7p editMode_comp edcompMain" id="' + data.innerpage[ii].component[i].id + '"><i class="fa fa-times"></i><img src="' + data.innerpage[ii].component[i].imgSrc +'" alt="" /></div>';                         
+                          }
+            else if ((localStorage.getItem('roleType') == 'Catalogue Manager') && (data.innerpage[ii].visibility == "internal") && ((i > 2 && i < 4) || (i > 4 && i < 6)))  
+                          {
+                component += '<div class="comp7p editMode_comp edcompMain" id="' + data.innerpage[ii].component[i].id + '"><i class="fa fa-times"></i><img src="' + data.innerpage[ii].component[i].imgSrc +'" alt="" /></div>';                         
+                          }                 
+          else if ((localStorage.getItem('roleType') == 'Catalogue Manager') && (data.innerpage[ii].visibility == "partner, internal") && (i > 2 && i < 6))  
+                  {
+        component += '<div class="comp7p editMode_comp edcompMain" id="' + data.innerpage[ii].component[i].id + '"><i class="fa fa-times"></i><img src="' + data.innerpage[ii].component[i].imgSrc +'" alt="" /></div>';                         
+                  }
+         else if ((localStorage.getItem('roleType') == 'Partner') && ((data.innerpage[ii].visibility == "") || (data.innerpage[ii].visibility == "internal")) && (i > 2 && i < 4))  
+                          {
+                component += '<div class="comp7p editMode_comp edcompMain" id="' + data.innerpage[ii].component[i].id + '"><i class="fa fa-times"></i><img src="' + data.innerpage[ii].component[i].imgSrc +'" alt="" /></div>';                         
+                          }
+        else if ((localStorage.getItem('roleType') == 'Partner') && (data.innerpage[ii].visibility == "partner") && (i > 2 && i < 5))  
+                  {
+        component += '<div class="comp7p editMode_comp edcompMain" id="' + data.innerpage[ii].component[i].id + '"><i class="fa fa-times"></i><img src="' + data.innerpage[ii].component[i].imgSrc +'" alt="" /></div>';                         
+                  }
+        else if ((localStorage.getItem('roleType') == 'Partner') && (data.innerpage[ii].visibility == "partner, internal") && (i > 2 && i < 5))  
+              {
+    component += '<div class="comp7p editMode_comp edcompMain" id="' + data.innerpage[ii].component[i].id + '"><i class="fa fa-times"></i><img src="' + data.innerpage[ii].component[i].imgSrc +'" alt="" /></div>';                         
+              }
+    else if ((localStorage.getItem('roleType') == 'Guest') && ((data.innerpage[ii].visibility == "partner, internal") || (data.innerpage[ii].visibility == "internal"))  && ((i > 2 && i < 4) || (i > 4 && i < 6)))  
+              {
+    component += '<div class="comp7p editMode_comp edcompMain" id="' + data.innerpage[ii].component[i].id + '"><i class="fa fa-times"></i><img src="' + data.innerpage[ii].component[i].imgSrc +'" alt="" /></div>';                         
+              } 
+     else if ((localStorage.getItem('roleType') == 'Guest') && ((data.innerpage[ii].visibility == "") || (data.innerpage[ii].visibility == "partner"))  && (i > 2 && i < 4))  
+              {
+    component += '<div class="comp7p editMode_comp edcompMain" id="' + data.innerpage[ii].component[i].id + '"><i class="fa fa-times"></i><img src="' + data.innerpage[ii].component[i].imgSrc +'" alt="" /></div>';                         
+              }      
+            else {                      
+           component += '<div class="comp7blk editMode_comp2 edcompMain comp7_hg" data-class="comp_details" id="' + data.innerpage[ii].component[i].id  + '"></div>';
+          }
+    }
+    else
+        {
+         if(i > 2 && i < 4)
+             {
+            component += '<div class="comp7p editMode_comp edcompMain" id="' + data.innerpage[ii].component[i].id + '"><i class="fa fa-times"></i><img src="' + data.innerpage[ii].component[i].imgSrc +'" alt="" /></div>';     
+             }
+            
+        }             
+                 
+    
+    }
+              
+           
+           //End of if condition              
+                else 
+                 { 
+                     
+                   if (i < 1) {
+                    
+                     component += '<div class="_comp comp6 _nopreview temp7" id="' + data.innerpage[ii].component[i].id  + '"><h1>Select Image</h1><a data-toggle="modal" data-target="#comp_image_7" class="comp_image_7" href="javascript:void(0)"><img src="images/image26.jpg" alt=""></a></div>';
+                       } else if(i == 1)
+                       {
+                         
+                      component += '<div class="_comp _nopreview comp6_2" id="' + data.innerpage[ii].component[i].id  + '"><h1>Select Component</h1><a data-toggle="modal" class="comp_details_temp7_WB" data-target="#comp_details_temp7_WB" href="javascript:void(0)"><img src="images/img3.jpg" alt=""></a><a data-toggle="modal" class="comp_details_temp7_WOB" data-target="#comp_details_temp7_WOB" href="javascript:void(0)"><img src="images/img6.jpg" alt=""></a></div>';
+                    }
+                     else if (i>1 && i<3)
+                       {
+                         
+                      component += '<div class="_comp _nopreview comp7_2" id="' + data.innerpage[ii].component[i].id  + '"><h1>Select Component</h1><a data-toggle="modal" class="comp_details_temp7_WB1" data-target="#comp_details_temp7_WB1" href="javascript:void(0)"><img src="images/03.jpg" alt=""></a><a data-toggle="modal" class="comp_details_temp7_WOB1" data-target="#comp_details_temp7_WOB1" href="javascript:void(0)"><img src="images/04.jpg" alt=""></a></div>';
+                    }
+                     else 
+                     {
+                     
+                       component += '<div class="_comp comp1 comp7_3 _nopreview temp0" id="' + data.innerpage[ii].component[i].id  + '"><h1>Select Component</h1><a data-toggle="modal" data-target="#comp_details_temp7_WB2" class="comp_details_temp7_WB2" href="javascript:void(0)"><img src="images/03.jpg" alt=""></a><a data-toggle="modal" class="comp_details_temp7_WT" data-target="#comp_details_temp7_WT" href="javascript:void(0)"><img src="images/05.jpg" alt=""></a><a data-toggle="modal" class="comp_details_temp7_WIMG" data-target="#comp_details_temp7_WIMG" href="javascript:void(0)"><img src="images/06.jpg" alt=""></a></div>';
+                 }
+                 } 
+            
+            
+          
+    
+     
+              });
+             
+         }
+         
+    
+
+
+     }      
+     
+     
+      if ((data.innerpage[ii].pageTemplate != 1) && (data.innerpage[ii].pageTemplate != 0))
+           {              
+           if(data.innerpage[ii].edited_date != '' && data.innerpage[ii].edited_date != undefined)
+             {
+             edited_dat = "Last updated on: " + data.innerpage[ii].edited_date;
+            } 
+           } 
+     else{
+           edited_dat = "";   
+        }
+           
+    
+     
+        if(data.innerpage[ii].pcode == "" || data.innerpage[ii].pcode ==  null){
+            html+='<div class="tab-content" page-type="'+data.innerpage[ii].pageType+'" id="'+data.innerpage[ii].pageId+'"><div class="last_mod"><span class="last_modify">'+edited_dat+'</span></div>'+spanHtml+'<a href="javascript:void(0)" title="Get Page URL" class="getPageUrl"><i class="fa fa-link"></i></a> '+component+' </div>';
+        }else{
+            html+='<div class="tab-content" page-type="'+data.innerpage[ii].pageType+'" id="'+data.innerpage[ii].pageId+'"><div class="last_mod"><span class="last_modify">'+edited_dat+'</span></div>'+spanHtml+'<a href="javascript:void(0)" title="Click to select ('+data.innerpage[ii].pcode+') service" class="checkToShare left"><input type="checkbox" id="shareDownload'+ii+'"></input><label for="shareDownload'+ii+'"><span></span></label></a><a href="javascript:void(0)" title="Get Page URL" class="getPageUrl"><i class="fa fa-link"></i></a> '+component+' </div>';
+        }
+     
+     
+       
+       
+     
+     
+     
+        setTimeout(function(){
+         getFilters();
+        },3000);
+      } 
+          
+            $("#mainPage").prepend(html);
+                highlight();
+            if(pdf_upload == true){
+                for(i=0; i<pdfHtml.length;i++){
+                  loadXMLDoc(pdfHtml[i],i) 
+                }
+             }
+        
+     
+        $(".tab-content").each(function(index){
+		  if(index == 1){
+              
+			var firstDivID = ($(this).children("div:first").attr("data-url-page")-1)
+		  }
+          var divID= $(this).children("div:first").attr("data-url-page");
+          $(this).attr("id", divID)
+		  $('.tab-content').first().attr("id", firstDivID);
+        })
+        
+        if(params.pageId != "" && params.pageId != undefined){
+            $(".user_block").show();
+            $(".filters_container").hide()
+            var filteredPages = params.pageId.split(",");
+            $(".tab-content").hide();
+            $(".tab-content:first").show()
+            $(filteredPages).each(function(i,elem){
+                $("#"+elem).show()
+            })
+            setTimeout(function(){
+             $(".checkToShare").hide();    
+             $(".page-input-container .totalPages").text($('.tab-content:visible').length)
+            },1000);	
+            
+        }
+                    
+        //******   Contributors List ******//
+        
+          var hdsContributorsList = "";
+          var avnetContributorsList = "";  
+          last =  function(array, n) {  
+          if (array == null)   
+            return void 0;  
+          if (n == null)   
+             return array[array.length - 1];  
+          return array.slice(Math.max(array.length - n, 0));    
+          };  
+          var hdsallselected='';
+          var avnetallselected='';
+          
+          if(data.hdsallselected != undefined && data.hdsallselected.length >0){
+              $(".contributors-list").show()
+              $(data.hdsallselected).each(function(i,elem){
+                if(elem == last(data.hdsallselected)){
+                    hdsallselected += '<span>'+elem.contributor+'</span>'
+                }else{
+                    hdsallselected += '<span>'+elem.contributor+', </span>'
+                  }
+              })
+              $("p.hds-contributors-list").prepend('<span id="hds_all_label">HDS Contributors: </span>')
+              $("p.hds-contributors-list").append(hdsallselected)
+          }
+          if(data.avnetallselected != undefined && data.avnetallselected.length > 0){
+              $(".contributors-list").show()
+              $(data.avnetallselected).each(function(i,elem){
+                if(elem == last(data.avnetallselected)){
+                    avnetallselected += '<span>'+elem.contributor+'</span>'
+                }else{
+                    avnetallselected += '<span>'+elem.contributor+', </span>'
+                  }
+              })
+              $("p.avnet-contributors-list").prepend('<span id="avnet_all_label">Avnet Contributors: </span>')
+              $("p.avnet-contributors-list").append(avnetallselected)
+          }
+        
+         setTimeout(function(){
+             $('.totalPages').text($('div.tab-content:visible').length);
+         },1000);	
+				
+         if(params.go!=undefined){
+		$('.tab-content').each(function(){
+		if($(this).attr("id") == params.go){
+ 				$("html, body").delay(2000).animate({scrollTop: $(this).offset().top }, 100)           
+			 }
+ 		})
+		 }
+		 
+		 $("#mainPage .thumb-con img").each(function(){
+			if($(this).attr("src") == ""){
+				$(this).hide();
+                var $this = $(this);
+                if ($(this).parent().children('p').html().replace(/\s|&nbsp;/g, '').length == 0) { 
+                     $(this).parent().hide();
+                }
+                
+			}
+		})
+         if(params.hidePartnerLogo == "true"){
+             $(".logo_alignment.align-center").hide();
+             $(".logo_alignment.align-left").hide();
+             $(".logo_alignment.align-right").hide();
+             hidePartnerLogo = "true";
+         }else{
+            $(".logo_alignment.align-center").show();
+            $(".logo_alignment.align-left").show();
+            $(".logo_alignment.align-right").show();
+            hidePartnerLogo = "false";
+         }
+            if(data.totalServicePage <= 0){
+                $("#filters_modal select").attr("disabled","disabled")
+                $("#filters_modal select").selectpicker("refresh")
+                $("#filters_modal input").attr("disabled","disabled")
+                $("#filters_modal .hidePartnerLogo").removeAttr("disabled")
+            }
+		 
+}
+		var sub_input = '-'
+		$('.tab-content li').each(function(){
+			if($(this).text().substring(0, sub_input.length) === sub_input){
+				$(this).css('list-style','none')
+			}
+		});
+            
+        setTimeout(function(){
+            $(".loadingImg").hide();
+            $("._blackBackGround").hide();
+        },3000)
+                    
+	
+	})
+			 
+
+    
+$(".copyright").html("&copy; Hitachi Data Systems Corporation " + (new Date).getFullYear() + ". All Rights Reserved.");
+ 
+})
+
+var pageIds = [];
+var servicePageIds = [];
+var filterPageIds = [];
+var hidePartnerLogo = false;
+$(document).ready(function(){
+    
+    
+    //***** Click handler generate the array of PAGE IDs selected by the user *****//
+    $(document).on("click", ".checkToShare input", function(event){
+        //pageIds = [];
+        
+        //alert("here" + $(this).parent().parent().first().attr('id'));
+        if($(this).is(":checked")){
+            pageIds.push($(this).parent().parent().first().attr('id'));
+        }else{
+            var removeItem = $(this).parent().parent().id;
+            pageIds.splice($.inArray(removeItem,pageIds),1);
+        }
+        if($(".checkToShare input:checked").length < 1){
+            $(".filters_section.left .filter_text").text("No Service selected")
+            $(".filters_section.left button.download").attr("disabled","disabled");
+            $(".filters_section.left .filter_text").addClass("disabled");
+            $(".filters_section.left button.share").attr("disabled","disabled");
+        }else if($(".checkToShare input:checked").length == 1){
+            $(".filters_section.left .filter_text").text($(".checkToShare input:checked").length+" service selected")
+            $(".filters_section.left button.download").removeAttr("disabled");
+            $(".filters_section.left button.share").removeAttr("disabled");
+            $(".filters_section.left .filter_text").removeClass("disabled");
+        }else{
+            $(".filters_section.left .filter_text").text($(".checkToShare input:checked").length+" services selected")
+            $(".filters_section.left button.download").removeAttr("disabled");
+            $(".filters_section.left button.share").removeAttr("disabled");
+            $(".filters_section.left .filter_text").removeClass("disabled");
+        }
+        
+    })
+    
+
+    
+    //***** Click handler to send the page IDs to the backend to generate *****//
+    //***** the pdf to DOWNLOAD after certain pages have been selected by user//
+    $(document).on("click", ".filters_section.left button.download", function(event){
+	    $(".loadingImg").show();
+        $("._blackBackGround").show();
+        var pcode = "",
+            description = "",
+            geo="",
+            category = "",
+            domain="",
+            segment="",
+            dirindir="",
+            fixedrpq="",
+            rangemin="",
+            rangemax="",
+            tagone="",
+            tagtwo="",
+            types ="service",
+            counter="",
+            tagthree="";
+       
+        var selected_services = "";
+        
+        if(pcode_list != null && pcode_list.length > 0 && pcode_list != undefined){
+           pcode =  encodeURIComponent(pcode_list);            
+        }
+        if(description_list != null && description_list.length > 0 && description_list != undefined){
+           description =  encodeURIComponent(description_list);
+        }
+        if(geo_list != null && geo_list.length > 0 && geo_list != undefined){
+           geo =  encodeURIComponent(geo_list);
+        }
+        if(category_list != null && category_list.length > 0 && category_list != undefined){
+           category =  encodeURIComponent(category_list);
+        } 
+        if(domain_list != null && domain_list.length > 0 && domain_list != undefined){
+           domain =  encodeURIComponent(domain_list);
+        }
+        if(segment_list != null && segment_list.length > 0 && segment_list != undefined){
+           segment =  encodeURIComponent(segment_list);
+        } 
+        if(dir_indir_list != null && dir_indir_list.length > 0 && dir_indir_list != undefined){
+           dirindir =  encodeURIComponent(dir_indir_list);
+        }
+        if(fixed_rpq_list != null && fixed_rpq_list.length > 0 && fixed_rpq_list != undefined){
+           fixedrpq =  encodeURIComponent(fixed_rpq_list);
+        }
+        if(tag_one_list != null && tag_one_list.length > 0 && tag_one_list != undefined){
+           tagone =  encodeURIComponent(tag_one_list);
+        }
+       if(tag_two_list != null && tag_two_list.length > 0 && tag_two_list != undefined){
+           tagtwo =  encodeURIComponent(tag_two_list);
+        }
+       if(tag_three_list != null && tag_three_list.length > 0 && tag_three_list != undefined){
+           tagthree =  encodeURIComponent(tag_three_list);
+        }
+		if(params.catalogType == undefined){
+			var catType = "approved";
+		}else{
+			var catType = params.catalogType;
+		}            
+        
+        
+       if($(".filtersApplied").val() == "true"){
+            $('.tab-content:visible').each(function(index){
+                if(index != 0)
+                filterPageIds.push($(this).attr('id'))
+            })
+        }      
+        
+         $('.checkToShare input').each(function(){
+                if($(this).is(":checked")){
+                    counter = counter+1;
+                }  
+            })  
+         console.log("counter"+counter);
+         
+             
+        
+    dcsMultiTrack('DCS.dcssip','apps.hds.com','DCS.dcsuri','/catalogmanager/peview/download/','DCSext.clname',decodeURIComponent(params.catalogName),'WT.dl','20','DCSext.scmuser',localStorage.getItem('userName'));
+        
+       $.ajax({
+            method: "GET",
+            cache: false,
+            url: "scm/generate/selected/pdf?catalogueId="+params.catalogId+"&pageid="+pageIds+ "&status=" + catType+"&hidePartnerLogo="+hidePartnerLogo+"&paramPcode="+pcode+"&paramDescription="+description+"&paramGeo="+geo+"&paramCategory="+category+"&paramDomain="+domain+"&paramSegment="+segment+"&paramDirectIndirect="+dirindir+"&paramFixedRpq="+fixedrpq+"&type="+types+"&paramTagOne="+tagone+"&paramTagTwo="+tagtwo+"&paramTagThree="+tagthree,
+        })
+        .done(function(data) {
+            if(data.status == true){
+				tmp = data.filename.split('path=');
+                tmp=tmp[1].split('title=');
+                pdfPath=tmp[0];
+                pdfName=tmp[1];
+        		$('#downloadPDFLink').attr('href',"scm/download/pdf?path="+pdfPath+"&filename="+pdfName+"&status=" + catType);					
+        		document.getElementById('downloadPDFLink').click();
+        		$(".loadingImg").hide();
+                $("._blackBackGround").hide();
+                }
+        })
+       
+    })
+
+    
+    //***** Click handler to send the page IDs to the backend to generate *****//
+    //***** the pdf to SHARE after certain pages have been selected by user//
+    $(document).on("click", ".filters_section.left button.share", function(event){    
+    $(".loadingImg").show();
+    $("._blackBackGround").show();
+    var pcode = "",
+        description = "",
+        geo="",
+        category = "",
+        domain="",
+        segment="",
+        dirindir="",
+        fixedrpq="",
+        rangemin="",
+        rangemax="",
+        tagone="",
+        tagtwo="",
+        tagthree="", 
+        counter="",
+        types="service";
+    var homeShareCatId = "";
+    homeShareCatId = params.catalogId;
+    catName = params.catalogName;
+    if(params.catalogType == "approved"){
+        $('#share_modal em').text("Catalog shared contains approved changes");
+    }
+
+    $("#share_modal").modal("show");
+    $("body").addClass("modal-open");
+    $('.customer_intel').find('#sendto').val('');
+    $('.customer_intel').find('#ccmail').val('');
+    $("#subjectMail").val('');
+    $("#messageMail").val('');
+        
+    if(pcode_list != null && pcode_list.length > 0 && pcode_list != undefined){
+       pcode =  encodeURIComponent(pcode_list);            
+    }
+    if(description_list != null && description_list.length > 0 && description_list != undefined){
+       description =  encodeURIComponent(description_list);
+    }
+    if(geo_list != null && geo_list.length > 0 && geo_list != undefined){
+       geo =  encodeURIComponent(geo_list);
+    }
+    if(category_list != null && category_list.length > 0 && category_list != undefined){
+       category =  encodeURIComponent(category_list);
+    } 
+    if(domain_list != null && domain_list.length > 0 && domain_list != undefined){
+       domain =  encodeURIComponent(domain_list);
+    }
+    if(segment_list != null && segment_list.length > 0 && segment_list != undefined){
+       segment =  encodeURIComponent(segment_list);
+    } 
+    if(dir_indir_list != null && dir_indir_list.length > 0 && dir_indir_list != undefined){
+       dirindir =  encodeURIComponent(dir_indir_list);
+    }
+    if(fixed_rpq_list != null && fixed_rpq_list.length > 0 && fixed_rpq_list != undefined){
+       fixedrpq =  encodeURIComponent(fixed_rpq_list);
+    } 
+    if(tagone != null && tagone.length > 0 && tagone != undefined){
+       tagone =  encodeURIComponent(tagone);
+    }
+    if(tagtwo != null && tagtwo.length > 0 && tagtwo != undefined){
+       tagtwo =  encodeURIComponent(tagtwo);
+    }
+    if(tagthree != null && tagthree.length > 0 && tagthree != undefined){
+       tagthree =  encodeURIComponent(tagthree);
+    }    
+   $('.checkToShare input').each(function(){
+                if($(this).is(":checked")){
+                    counter = counter+1;
+                }  
+            })  
+         
+         
+      
+        
+    if(params.catalogType == "approved"){
+        var url =  "scm/get/catalog/url/preview?catalogueId=" + homeShareCatId + "&button=left&username=" + localStorage.getItem('userName') + "&catalogType=approved"+"&hidePartnerLogo="+hidePartnerLogo+"&pageId="+pageIds+"&paramPcode="+pcode+"&paramDescription="+description+"&paramGeo="+geo+"&paramCategory="+category+"&paramDomain="+domain+"&paramSegment="+segment+"&paramDirectIndirect="+dirindir+"&paramFixedRpq="+fixedrpq+"&type="+types+"&paramTagOne="+tagone+"&paramTagTwo="+tagtwo+"&paramTagThree="+tagthree
+    }else{
+        var url = "scm/get/catalog/url/preview?catalogueId=" + homeShareCatId + "&button=left&username=" + localStorage.getItem('userName') + "&catalogType=Unapproved"+"&pageId="+pageIds+"&hidePartnerLogo="+hidePartnerLogo+"&paramPcode="+pcode+"&paramDescription="+description+"&paramGeo="+geo+"&paramCategory="+category+"&paramDomain="+domain+"&paramSegment="+segment+"&paramDirectIndirect="+dirindir+"&paramFixedRpq="+fixedrpq+"&type="+types+"&paramTagOne="+tagone+"&paramTagTwo="+tagtwo+"&paramTagThree="+tagthree 
+    }
+             
+     $.ajax({
+			type: "GET",
+			cache: false,
+			url: url,
+			//url: "/json/share.json",
+			dataType: 'json',
+			success: function(data) {}
+		}).done(function(data) {
+            $("body").addClass("modal-open");
+			$("#subjectMail").val(data.subject);
+			$("#messageMail").val(data.message);
+            $(".loadingImg").hide();
+            $("._blackBackGround").hide();
+		})
+    });
+    
+    
+    $(document).on("click", ".downloadFullCatalog", function(event){                 
+    $(".loadingImg").show();
+    $("._blackBackGround").show();
+        var pcode = "",
+            description = "",
+            geo="",
+            category = "",
+            domain="",
+            segment="",
+            dirindir="",
+            fixedrpq="",
+            rangemin="",
+            rangemax="",
+            tagone="",
+            tagtwo="",
+            counter="",
+            types="",
+            tagthree="";  
+
+	 var selected_services = "";
+        
+        
+        
+        if(params.paramPcode != null && params.paramPcode.length > 0 && params.paramPcode != undefined){
+           pcode = params.paramPcode;            
+        }
+        if(params.paramDescription != null && params.paramDescription.length > 0 && params.paramDescription != undefined){
+           description = decodeURIComponent(params.paramDescription);
+        }
+        if(params.paramGeo != null && params.paramGeo.length > 0 && params.paramGeo != undefined){
+           geo = decodeURIComponent(params.paramGeo);
+        }
+        if(params.paramCategory != null && params.paramCategory.length > 0 && params.paramCategory != undefined){
+           category = decodeURIComponent(params.paramCategory);
+        } 
+        if(params.paramDomain != null && params.paramDomain.length > 0 && params.paramDomain != undefined){
+           domain = decodeURIComponent(params.paramDomain);
+        }
+        if(params.paramSegment != null && params.paramSegment.length > 0 && params.paramSegment != undefined){
+           segment = decodeURIComponent(params.paramSegment);
+        } 
+        if(params.paramDirectIndirect != null && params.paramDirectIndirect.length > 0 && params.paramDirectIndirect != undefined){
+           dirindir = decodeURIComponent(params.paramDirectIndirect);
+        }
+        if(params.paramFixedRpq != null && params.paramFixedRpq.length > 0 && params.paramFixedRpq != undefined){
+           fixedrpq = decodeURIComponent(params.paramFixedRpq);
+        } 
+        if(params.type != null && params.type != undefined){
+           types = encodeURIComponent(params.type);
+        } 
+        if(tagone != null && tagone.length > 0 && tagone != undefined){
+           tagone = decodeURIComponent(tagone);
+        }
+       if(tagtwo != null && tagtwo.length > 0 && tagtwo != undefined){
+           tagtwo = decodeURIComponent(tagtwo);
+        }
+       if(tagthree != null && tagthree.length > 0 && tagthree != undefined){
+           tagthree = decodeURIComponent(tagthree);
+        }
+        
+       
+            edescription =encodeURIComponent(description);
+            egeo=encodeURIComponent(geo);
+            ecategory = encodeURIComponent(category);
+            edomain= encodeURIComponent(domain);
+            esegment=encodeURIComponent(segment);
+            edirindir=encodeURIComponent(dirindir);
+            efixedrpq=encodeURIComponent(fixedrpq);
+            erangemin=encodeURIComponent(rangemin);
+            erangemax=encodeURIComponent(rangemax);
+            etagone=encodeURIComponent(tagone);
+            etagtwo=encodeURIComponent(tagtwo);
+            etagthree=encodeURIComponent(tagthree);
+              
+		if(params.catalogType == undefined){
+			var catType = "approved";
+		}else{
+			var catType = params.catalogType;
+		}        
+       if($(".filtersApplied").val() == "true"){
+            $('.tab-content:visible').each(function(index){
+                if(index != 0)
+                filterPageIds.push($(this).attr('id'))
+            })
+        }      
+        
+        $('.checkToShare input').each(function(){
+            if($(this).is(":checked")){
+                counter = counter+1;
+            }  
+        })  
+         
+         
+                
+
+       $.ajax({
+            method: "GET",
+            cache: false,
+            url: "scm/generate/selected/pdf?catalogueId="+params.catalogId+"&pageid="+params.pageId+"&status=" + catType+"&hidePartnerLogo="+hidePartnerLogo+"&paramPcode="+pcode+"&paramDescription="+edescription+"&paramGeo="+egeo+"&paramCategory="+ecategory+"&paramDomain="+edomain+"&paramSegment="+esegment+"&paramDirectIndirect="+edirindir+"&paramFixedRpq="+efixedrpq+"&type="+types+"&paramTagOne="+etagone+"&paramTagTwo="+etagtwo+"&paramTagThree="+etagthree,
+        })
+        .done(function(data) {
+            if(data.status == true){			
+                tmp = data.filename.split('path=');
+                tmp=tmp[1].split('title=');
+                pdfPath=tmp[0];
+                pdfName=tmp[1];
+        		$('#downloadPDFLink').attr('href',"scm/download/pdf?path="+pdfPath+"&filename="+pdfName+"&status=" + catType.toLowerCase());
+        		document.getElementById('downloadPDFLink').click();
+        		$(".loadingImg").hide();
+                $("._blackBackGround").hide();
+                }
+        })
+    })
+    
+    
+    
+    //***** Click handler to send the page IDs to the backend to generate *****//
+    //***** the pdf to DOWNLOAD after certain pages have been filtered by user//
+    $(document).on("click", ".filters_section.right button.download", function(event){       
+        $(".loadingImg").show();
+        $("._blackBackGround").show();
+        filterPageIds = [];
+        
+        var pcode = "",
+            description = "",
+            geo="",
+            category = "",
+            domain="",
+            segment="",
+            dirindir="",
+            fixedrpq="",
+            rangemin="",
+            rangemax="",
+            tagone="",
+            tagtwo="",
+            types = "filter",
+            counter="",
+            tagthree="";     
+            
+        var selected_services = "";    
+        
+        
+       if($(".filtersApplied").val() == "true"){
+            $('.tab-content:visible').each(function(index){
+                if(index != 0)
+                filterPageIds.push($(this).attr('id'))
+            })
+        }
+        
+         $('.checkToShare input').each(function(){
+                if($(this).is(":checked")){
+                    counter = counter+1;
+                }  
+            })  
+         
+       
+        if(($(".filtersApplied").val() == "true") && (counter > 0)){        
+          types = "both"; 
+             }else if($(".filtersApplied").val() == "true"){
+                    types = "filter"; 
+             }else if (counter > 0){            
+                    types= "filter";   
+                    }
+
+                   
+        
+   
+		
+        if(params.catalogType == undefined){
+			var catType = "approved";
+		}else{
+			var catType = params.catalogType;
+		}
+		        
+       if(pcode_list != null && pcode_list.length > 0 && pcode_list != undefined){
+           pcode =  encodeURIComponent(pcode_list);            
+        }
+        if(description_list != null && description_list.length > 0 && description_list != undefined){
+           description =  encodeURIComponent(description_list);
+        }
+        if(geo_list != null && geo_list.length > 0 && geo_list != undefined){
+           geo =  encodeURIComponent(geo_list);
+        }
+        if(category_list != null && category_list.length > 0 && category_list != undefined){
+           category =  encodeURIComponent(category_list);
+        } 
+        if(domain_list != null && domain_list.length > 0 && domain_list != undefined){
+           domain =  encodeURIComponent(domain_list);
+        }
+        if(segment_list != null && segment_list.length > 0 && segment_list != undefined){
+           segment =  encodeURIComponent(segment_list);
+        } 
+        if(dir_indir_list != null && dir_indir_list.length > 0 && dir_indir_list != undefined){
+           dirindir =  encodeURIComponent(dir_indir_list);
+        }
+        if(fixed_rpq_list != null && fixed_rpq_list.length > 0 && fixed_rpq_list != undefined){
+           fixedrpq =  encodeURIComponent(fixed_rpq_list);
+        } 
+       if(tag_one_list != null && tag_one_list.length > 0 && tag_one_list != undefined){
+           tagone =  encodeURIComponent(tag_one_list);
+        }
+       if(tag_two_list != null && tag_two_list.length > 0 && tag_two_list != undefined){
+           tagtwo =  encodeURIComponent(tag_two_list);
+        }
+       if(tag_three_list != null && tag_three_list.length > 0 && tag_three_list != undefined){
+           tagthree =  encodeURIComponent(tag_three_list);
+        } 
+        dcsMultiTrack('DCS.dcssip','apps.hds.com','DCS.dcsuri','/catalogmanager/peview/download/','DCSext.clname',decodeURIComponent(params.catalogName),'WT.dl','20','DCSext.scmuser',localStorage.getItem('userName'));
+       $.ajax({
+            method: "GET",
+            cache: false,
+            url: "scm/generate/selected/pdf?catalogueId="+params.catalogId+"&pageid="+filterPageIds+"&status=" + catType+"&hidePartnerLogo="+hidePartnerLogo+"&paramPcode="+pcode+"&paramDescription="+description+"&paramGeo="+geo+"&paramCategory="+category+"&paramDomain="+domain+"&paramSegment="+segment+"&paramDirectIndirect="+dirindir+"&paramFixedRpq="+fixedrpq+"&type="+types+"&paramTagOne="+tagone+"&paramTagTwo="+tagtwo+"&paramTagThree="+tagthree,
+        })
+        .done(function(data) {
+            if(data.status == true){
+				tmp = data.filename.split('path=');
+                tmp=tmp[1].split('title=');
+                pdfPath=tmp[0];
+                pdfName=tmp[1];
+        		$('#downloadPDFLink').attr('href',"scm/download/pdf?path="+pdfPath+"&filename="+pdfName+"&status=" + catType);     	document.getElementById('downloadPDFLink').click();
+        		$(".loadingImg").hide();
+                $("._blackBackGround").hide();
+                }
+        })
+       
+    })
+    
+    //***** Click handler to send the page IDs to the backend to generate *****//
+    //***** the pdf to SHARE after certain pages have been filtered by user//
+    $(document).on("click", ".filters_section.right button.share", function(event){
+        $(".loadingImg").show();
+        $("._blackBackGround").show();
+        
+        var pcode = "",
+            description = "",
+            geo="",
+            category = "",
+            domain="",
+            segment="",
+            dirindir="",
+            fixedrpq="",
+            rangemin="",
+            rangemax="",
+            tagone="",
+            tagtwo="",
+            counter="",
+            types="filter",
+            tagthree="";  
+  
+        filterPageIds = [];
+        if($(".filtersApplied").val() == "true"){
+            $('.tab-content:visible').each(function(index){
+                if(index != 0)
+                filterPageIds.push($(this).attr('id'))
+            })
+        }
+        var homeShareCatId = "";
+		homeShareCatId = params.catalogId;
+		catName = params.catalogName;
+        
+        
+        
+        if(params.catalogType == "approved"){
+            $('#share_modal em').text("Catalog shared contains approved changes");
+        }
+		$("#share_modal").modal("show");
+        $("body").addClass("modal-open");
+		$('.customer_intel').find('#sendto').val('');
+		$('.customer_intel').find('#ccmail').val('');
+        $("#subjectMail").val('');
+        $("#messageMail").val('');
+        
+        if(pcode_list != null && pcode_list.length > 0 && pcode_list != undefined){
+           pcode =  encodeURIComponent(pcode_list);            
+        }
+        if(description_list != null && description_list.length > 0 && description_list != undefined){
+           description =  encodeURIComponent(description_list);
+        }
+        if(geo_list != null && geo_list.length > 0 && geo_list != undefined){
+           geo =  encodeURIComponent(geo_list);
+        }
+        if(category_list != null && category_list.length > 0 && category_list != undefined){
+           category =  encodeURIComponent(category_list);
+        } 
+        if(domain_list != null && domain_list.length > 0 && domain_list != undefined){
+           domain =  encodeURIComponent(domain_list);
+        }
+        if(segment_list != null && segment_list.length > 0 && segment_list != undefined){
+           segment =  encodeURIComponent(segment_list);
+        } 
+        if(dir_indir_list != null && dir_indir_list.length > 0 && dir_indir_list != undefined){
+           dirindir =  encodeURIComponent(dir_indir_list);
+        }
+        if(fixed_rpq_list != null && fixed_rpq_list.length > 0 && fixed_rpq_list != undefined){
+           fixedrpq =  encodeURIComponent(fixed_rpq_list);
+        } 
+       if(tag_one_list != null && tag_one_list.length > 0 && tag_one_list != undefined){
+           tagone =  encodeURIComponent(tag_one_list);
+        }
+       if(tag_two_list != null && tag_two_list.length > 0 && tag_two_list != undefined){
+           tagtwo =  encodeURIComponent(tag_two_list);
+        }
+       if(tag_three_list != null && tag_three_list.length > 0 && tag_three_list != undefined){
+           tagthree =  encodeURIComponent(tag_three_list);
+        }
+              
+              
+              
+      $('.checkToShare input').each(function(){
+                if($(this).is(":checked")){
+                    counter = counter+1;
+                }  
+            })  
+         
+      if(($(".filtersApplied").val() == "true") && (counter > 0)){        
+          types = "both"; 
+             }else if($(".filtersApplied").val() == "true"){
+                    types = "filter"; 
+             }else if (counter > 0){            
+                    types= "filter";   
+                    }
+
+        
+        
+        if(params.catalogType == "approved"){
+            var url = "scm/get/catalog/url/preview?catalogueId=" + homeShareCatId + "&button=right&username=" + localStorage.getItem('userName') + "&catalogType=approved"+"&pageId="+filterPageIds+"&hidePartnerLogo="+hidePartnerLogo+"&paramPcode="+pcode+"&paramDescription="+description+"&paramGeo="+geo+"&paramCategory="+category+"&paramDomain="+domain+"&paramSegment="+segment+"&paramDirectIndirect="+dirindir+"&paramFixedRpq="+fixedrpq+"&type="+types+"&paramTagOne="+tagone+"&paramTagTwo="+tagtwo+"&paramTagThree="+tagthree
+        }else{
+            var url = "scm/get/catalog/url/preview?catalogueId=" + homeShareCatId + "&button=right&username=" + localStorage.getItem('userName') + "&catalogType=Unapproved"+"&pageId="+filterPageIds+"&hidePartnerLogo="+hidePartnerLogo+"&paramPcode="+pcode+"&paramDescription="+description+"&paramGeo="+geo+"&paramCategory="+category+"&paramDomain="+domain+"&paramSegment="+segment+"&paramDirectIndirect="+dirindir+"&paramFixedRpq="+fixedrpq+"&type="+types+"&paramTagOne="+tagone+"&paramTagTwo="+tagtwo+"&paramTagThree="+tagthree
+        }
+     $.ajax({
+			type: "GET",
+			cache: false,
+			url: url,
+			//url: "/json/share.json",
+			dataType: 'json',
+			success: function(data) {}
+		}).done(function(data) {
+            console.log(data.message);
+            $("body").addClass("modal-open");
+			$("#subjectMail").val(data.subject);
+			$("#messageMail").val(data.message);
+            $(".loadingImg").hide();
+            $("._blackBackGround").hide();
+		})
+    })
+    
+})
+   
+    $('.shareServicesSelected').click(function(){
+        $(".filters_section.left button.share").click();
+        $("body").addClass("modal-open");
+    })
+    $(window).scroll(function() {
+        if ($(this).scrollTop() > 160){  
+            $('.row.filters_container').addClass("sticky");
+        }
+        else{
+            $('.row.filters_container').removeClass("sticky");
+        }
+    });
+    //Click Handler for Filters Modal
+    $(document).on("click", ".filters_section.right .filter_text", function() {
+        $("#filters_modal").modal("show");
+        if($(".filtersApplied").val() == "false"){
+            $("#filters_modal select").selectpicker("deselectAll")
+            $("#filters_modal select").selectpicker("refresh")
+        }
+        $("body").addClass("modal-open");
+    });
+    
+    //Click Handler for Filters Modal
+    $(document).on("click", ".filters_section.left .filter_text", function() {
+        if($(this).hasClass("disabled")){
+            return
+        }else{
+            var selected_services = "";
+            $('.checkToShare input').each(function(){
+                if($(this).is(":checked")){
+                    selected_services += '<li><span check-id='+$(this).attr("id")+'>'+$(this).parent().parent('.tab-content').children('.filterAttributes').attr("pcode")+'-'+$(this).parent().parent('.tab-content').children('.filterAttributes').attr("description")+'<i class="fa fa-remove removeSelectedService"></i></span></li>'
+                }  
+            })
+            if(selected_services == ""){
+                $('.selected_services ul').html('<li style="list-style: none;text-align: center;margin-left: -75px;"><span>No services selected</span></li>');
+            }else{
+                $('.selected_services ul').html(selected_services);
+            }
+            $("#services_modal").modal("show"); 
+        }
+    });
+    
+    //Click Handler for Filters Modal
+    $(document).on("click", ".removeSelectedService", function(){
+        var checkId = $(this).parent("span").attr("check-id");
+        var selected_services = "";
+        $('#'+checkId).prop('checked', false);
+        pageIds = [];
+        $(".checkToShare input").each(function(){
+            if($(this).is(":checked")){
+                pageIds.push($(this).parent().parent().first().attr('id'));
+            }
+            if($(this).is(":checked")){
+                selected_services += '<li><span check-id='+$(this).attr("id")+'>'+$(this).parent().parent('.tab-content').children('.filterAttributes').attr("pcode")+'-'+$(this).parent().parent('.tab-content').children('.filterAttributes').attr("description")+'<i class="fa fa-remove removeSelectedService"></i></span></li>'
+            }
+            if(selected_services == ""){
+                $('.selected_services ul').html('<li style="list-style: none;text-align: center;margin-left: -75px;"><span>No services selected</span></li>');
+            }else{
+                $('.selected_services ul').html(selected_services);
+            }
+        })
+        if($(".checkToShare input:checked").length < 1){
+            $(".filters_section.left .filter_text").text("No Service selected")
+            $(".filters_section.left button.download").attr("disabled","disabled");
+            $(".filters_section.left .filter_text").addClass("disabled");
+            $(".filters_section.left button.share").attr("disabled","disabled");
+        }else if($(".checkToShare input:checked").length == 1){
+            $(".filters_section.left .filter_text").text($(".checkToShare input:checked").length+" service selected")
+            $(".filters_section.left button.download").removeAttr("disabled");
+            $(".filters_section.left button.share").removeAttr("disabled");
+            $(".filters_section.left .filter_text").removeClass("disabled");
+        }else{
+            $(".filters_section.left .filter_text").text($(".checkToShare input:checked").length+" services selected")
+            $(".filters_section.left button.download").removeAttr("disabled");
+            $(".filters_section.left button.share").removeAttr("disabled");
+            $(".filters_section.left .filter_text").removeClass("disabled");
+        }
+    });
+    
+    function getFilters(){
+        setTimeout(function(){
+            pcodeHtml = "";
+            pcodeDescHtml = "";
+            geoHtml = "";
+            categoryHtml = "";
+            domainHtml = "";
+            segmentHtml = "";
+            dirHtml="";
+            fixedHtml ="";
+            sel_Tag1_Html="";
+            sel_Tag2_Html="";
+            sel_Tag3_Html="";
+            $("span.filterAttributes").each(function(i,val){
+                if($(this).attr('pcode'))
+                pcodeHtml += '<option value="'+$(this).attr('pcode')+'">'+ $(this).attr('pcode') +'</option>';
+            })
+            $("span.filterAttributes").each(function(i,val){
+                if($(this).attr('description'))
+                pcodeDescHtml += '<option value="'+$(this).attr('description')+'">'+ $(this).attr('description') +'</option>';
+            })
+            $("span.filterAttributes").each(function(i,val){
+                if($(this).attr('geo'))
+                geoHtml += '<option value="'+$(this).attr('geo')+'">'+ $(this).attr('geo') +'</option>';
+            })
+            $("span.filterAttributes").each(function(i,val){
+                if($(this).attr('category'))
+                categoryHtml += '<option value="'+$(this).attr('category')+'">'+ $(this).attr('category') +'</option>';
+            })
+            $("span.filterAttributes").each(function(i,val){
+                if($(this).attr('domain'))
+                domainHtml += '<option value="'+$(this).attr('domain')+'">'+ $(this).attr('domain') +'</option>';
+            })
+            $("span.filterAttributes").each(function(i,val){
+                if($(this).attr('fixed_rpq'))
+                fixedHtml += '<option value="'+$(this).attr('fixed_rpq')+'">'+ $(this).attr('fixed_rpq') +'</option>';
+            });
+            $("span.filterAttributes").each(function(i,val){
+                if($(this).attr('segment'))
+                segmentHtml += '<option value="'+$(this).attr('segment')+'">'+ $(this).attr('segment') +'</option>';
+            })
+            $("span.filterAttributes").each(function(i,val){
+            if($(this).attr('selecttag1'))
+                sel_Tag1_Html += '<option value="'+$(this).attr('selecttag1')+'">'+ $(this).attr('selecttag1') +'</option>';
+            })
+            $("span.filterAttributes").each(function(i,val){
+                if($(this).attr('selecttag2'))
+                sel_Tag2_Html += '<option value="'+$(this).attr('selecttag2')+'">'+ $(this).attr('selecttag2') +'</option>';
+            })
+             $("span.filterAttributes").each(function(i,val){
+                if($(this).attr('selecttag3'))
+                sel_Tag3_Html += '<option value="'+$(this).attr('selecttag3')+'">'+ $(this).attr('selecttag3') +'</option>';
+            })  
+            
+            $("#selectPcode").html(pcodeHtml);
+            $("#selectDescription").html(pcodeDescHtml);
+            $("#selectGeo").html(geoHtml);
+            $("#selectCategory").html(categoryHtml);
+            $("#selectDomain").html(domainHtml);
+            $("#selectSegment").html(segmentHtml);
+            $("#selectTag1").html(sel_Tag1_Html);
+            $("#selectTag2").html(sel_Tag2_Html);
+            $("#selectTag3").html(sel_Tag3_Html);
+            
+            //$("#select_dir_indir").html(fixedHtml);
+            var found = [];
+            $("#selectCatalogForm select option").each(function() {
+              if($.inArray(this.value, found) != -1) $(this).remove();
+              found.push(this.value);
+            });
+            $("#selectCatalogForm select").selectpicker("refresh")
+            $(".loadingImg").hide();
+            $("._blackBackGround").hide();
+        },2000)   
+    }
+  
+        setTimeout(function(){
+            //getFiltersOnLoad();
+        },1000)
+    
+        var pcode_list;
+        var description_list ;
+        var geo_list;
+        var category_list;
+        var domain_list;
+        var segment_list;
+        var dir_indir_list;
+        var fixed_rpq_list=[];
+        var range_min;
+        var range_max;
+        var  tag_one_list;
+          var tag_two_list;
+          var tag_three_list;
+
+    
+    // Click Handler for clearing the filters button after the filters have been selected by user  //
+        $(document).on("click", ".remove_filter", function() {
+                  
+            var target = $(this).parent().attr("sel-data-id");
+                 
+            $("#"+target).selectpicker('deselectAll');
+            if(target == "range_filter"){
+                $(".fee_range_min").val("");
+                $(".fee_range_max").val("");
+            }
+            $(".applyFilters").click();
+        })
+        
+        function updateServiceCount(){
+            var serviceCount = 0;
+            $(".tab-content:visible").each(function(){
+                if($(this).attr("page-type") == "Services"){
+                    serviceCount = serviceCount+1;
+                }
+            })
+            $(".availableServicePages").text("Services Count: "+serviceCount).show();
+        } 
+    //  Click Handler for apply filters button after the filters have been selected by user  //
+        $(document).on("click", ".clear_filters", function(event) {
+            event.preventDefault();
+            getFilters();
+            $(".filtersApplied").val("false")
+            $(".loadingImg").show();
+            $("._blackBackGround").show();
+            setTimeout(function(){
+                $(".tab-content").show();
+                $("div.selected_filters").html("");
+                $(".loadingImg").hide();
+                $("._blackBackGround").hide();
+                updateServiceCount();
+            },1000)
+            filterPageIds = [];
+        })
+        
+    //  Click Handler for apply filters button after the filters have been selected by user  //
+        $(document).on("click", ".modify_filters", function() {
+            $("#filters_modal").modal('show');
+        })
+        
+    // Click Handler for apply filters button after the filters have been selected by user  //
+        $(document).on("click", ".applyFilters", function() {
+            pcode_list = $("#selectPcode").val();
+            description_list = $("#selectDescription").val();
+            geo_list = $("#selectGeo").val();
+            category_list = $("#selectCategory").val();
+            domain_list = $("#selectDomain").val();
+            segment_list = $("#selectSegment").val();
+            dir_indir_list = $("#select_dir_indir").val();
+            fixed_rpq_list = $("#select_fixed_rpq").val();
+            range_min = $(".fee_range_min").val();
+            range_max = $(".fee_range_max").val();
+            tag_one_list = $("#selectTag1").val(); 
+          tag_two_list = $("#selectTag2").val(); 
+            tag_three_list = $("#selectTag3").val();
+                        
+          
+            
+            if($(".hidePartnerLogo").is(":checked")){
+               hidePartnerLogo = "true"; 
+            }else{
+                hidePartnerLogo = "false";
+            }
+            $(".loadingImg").show();
+            $("._blackBackGround").show();
+            setTimeout(function(){
+                populateFiltersContainer();            
+                showFilteredPages();
+                updateServiceCount();
+                if(hidePartnerLogo == "true"){
+                    $(".logo_alignment.align-center").hide();
+                    $(".logo_alignment.align-left").hide();
+                    $(".logo_alignment.align-right").hide();
+                }else{
+                    $(".logo_alignment.align-center").show();
+                    $(".logo_alignment.align-left").show();
+                    $(".logo_alignment.align-right").show();
+                }
+                $(".loadingImg").hide();
+                $("._blackBackGround").hide();
+                $("#filters_modal").modal('hide');
+                $(".page-input-container .totalPages").text($('.tab-content:visible').length)
+            },1000)
+        })
+  
+       
+// ******************* to show the filters selected by the user on the preview page *********START********//
+        function populateFiltersContainer(){
+            $("div.selected_filters").html("")
+            if(pcode_list != null && pcode_list.length > 0){  
+                $("div.selected_filters").append('<a sel-data-id="selectPcode" href="javascript:void(0)" title="'+pcode_list+'" class="sel_filter"><strong class="filter_cat">P-Code:</strong><span class="filter_txt">'+pcode_list+'</span><span class="remove_filter"><i class="fa fa-times" aria-hidden="true"></i></span></a>'); 
+            }  
+            if(tag_one_list != null && tag_one_list.length > 0){  
+                $("div.selected_filters").append('<a sel-data-id="selectTag1" href="javascript:void(0)" title="'+tag_one_list+'" class="sel_filter"><strong class="filter_cat">Tag-One:</strong><span class="filter_txt">'+tag_one_list+'</span><span class="remove_filter"><i class="fa fa-times" aria-hidden="true"></i></span></a>'); 
+            }
+             if(tag_two_list != null && tag_two_list.length > 0){  
+                $("div.selected_filters").append('<a sel-data-id="selectTag2" href="javascript:void(0)" title="'+tag_two_list+'" class="sel_filter"><strong class="filter_cat">Tag-Two:</strong><span class="filter_txt">'+tag_two_list+'</span><span class="remove_filter"><i class="fa fa-times" aria-hidden="true"></i></span></a>'); 
+            }
+             if(tag_three_list != null && tag_three_list.length > 0){  
+                $("div.selected_filters").append('<a sel-data-id="selectTag3" href="javascript:void(0)" title="'+tag_three_list+'" class="sel_filter"><strong class="filter_cat">Tag-Three:</strong><span class="filter_txt">'+tag_three_list+'</span><span class="remove_filter"><i class="fa fa-times" aria-hidden="true"></i></span></a>'); 
+            }
+            if(description_list != null && description_list.length > 0){
+               $("div.selected_filters").append('<a sel-data-id="selectDescription" href="javascript:void(0)" title="'+description_list+'" class="sel_filter"><strong class="filter_cat">P-Code Description:</strong><span class="filter_txt">'+description_list+'</span><span class="remove_filter"><i class="fa fa-times" aria-hidden="true"></i></span></a>');
+            }
+            if(geo_list != null && geo_list.length > 0){
+               $("div.selected_filters").append('<a sel-data-id="selectGeo" href="javascript:void(0)" title="'+geo_list+'" class="sel_filter"><strong class="filter_cat">Geo:</strong><span class="filter_txt">'+geo_list+'</span><span class="remove_filter"><i class="fa fa-times" aria-hidden="true"></i></span></a>');  
+            }
+            if(category_list != null && category_list.length > 0){
+               $("div.selected_filters").append('<a sel-data-id="selectCategory" href="javascript:void(0)" title="'+category_list+'" class="sel_filter"><strong class="filter_cat">Category:</strong><span class="filter_txt">'+category_list+'</span><span class="remove_filter"><i class="fa fa-times" aria-hidden="true"></i></span></a>');  
+            }
+            if(domain_list != null && domain_list.length > 0){
+               $("div.selected_filters").append('<a sel-data-id="selectDomain" href="javascript:void(0)" title="'+domain_list+'" class="sel_filter"><strong class="filter_cat">Domain:</strong><span class="filter_txt">'+domain_list+'</span><span class="remove_filter"><i class="fa fa-times" aria-hidden="true"></i></span></a>');  
+            }
+            if(segment_list != null && segment_list.length > 0){
+               $("div.selected_filters").append('<a sel-data-id="selectSegment" href="javascript:void(0)" title="'+segment_list+'" class="sel_filter"><strong class="filter_cat">Segment:</strong><span class="filter_txt">'+segment_list+'</span><span class="remove_filter"><i class="fa fa-times" aria-hidden="true"></i></span></a>');  
+            }
+           if(dir_indir_list != null && dir_indir_list.length > 0){
+               $("div.selected_filters").append('<a sel-data-id="select_dir_indir" href="javascript:void(0)" title="'+dir_indir_list+'" class="sel_filter"><strong class="filter_cat">Direct/Indirect:</strong><span class="filter_txt">'+dir_indir_list+'</span><span class="remove_filter"><i class="fa fa-times" aria-hidden="true"></i></span></a>');  
+            }
+            if(fixed_rpq_list != null && fixed_rpq_list.length > 0){
+               $("div.selected_filters").append('<a sel-data-id="select_fixed_rpq" href="javascript:void(0)" title="'+fixed_rpq_list+'" class="sel_filter"><strong class="filter_cat">Fixed/RPQ:</strong><span class="filter_txt">'+fixed_rpq_list+'</span><span class="remove_filter"><i class="fa fa-times" aria-hidden="true"></i></span></a>');  
+            }
+            if(range_max != "" && range_min != ""){
+                $("div.selected_filters").append('<a sel-data-id="range_filter" href="javascript:void(0)" title="'+range_min+"-"+range_max+'" class="sel_filter"><strong class="filter_cat">Fee Basics:</strong><span class="filter_txt">'+range_min+"-"+range_max+'</span><span class="remove_filter"><i class="fa fa-times" aria-hidden="true"></i></span></a>');
+            } 
+        
+              $("div.selected_filters").append('<a class="sel_filter clear_filters" href="javascript:void(0)">Clear All</a><a class="sel_filter modify_filters" href="javascript:void(0)">Modify</a>');
+        }
+    
+    // ******************* to show the filters selected by the user on the preview page *********END********//
+    
+    
+  // *********************To Show the filtered pages, based on the chosen filters **************START//
+       function showFilteredPages(){       
+               $(".tab-content").show();
+               $('.filterAttributes').each(function(){
+                    var pcode = $(this).attr("pcode")
+                    var description = $(this).attr("description")
+                    var geo = $(this).attr("geo")
+                    var category = $(this).attr("category")
+                    var domain = $(this).attr("domain")
+                    var segment = $(this).attr("segment")
+                    var dir_indir = $(this).attr("dir_indir")
+                    var fixed_rpq = $(this).attr("fixed_rpq")
+                    var range = $(this).attr("fee_basics")
+                    var tagone = $(this).attr("selecttag1")
+                    var tagtwo = $(this).attr("selecttag2") 
+                    var tagthree = $(this).attr("selecttag3")
+                    if(pcode_list != null && pcode_list.length > 0){
+                        if(jQuery.inArray(pcode,pcode_list) > -1){
+                            if($(this).parent().is(':visible')){
+                               $(this).parent().show()
+                             }
+                        }else{
+                            $(this).parent().hide()
+                        }
+                    }
+                    if(tag_one_list != null && tag_one_list.length > 0){
+                        if(jQuery.inArray(tagone,tag_one_list) > -1){
+                            if($(this).parent().is(':visible')){
+                               $(this).parent().show()
+                             }
+                        }else{
+                            $(this).parent().hide()
+                        }
+                    }
+                    if(tag_two_list != null && tag_two_list.length > 0){
+                        if(jQuery.inArray(tagtwo,tag_two_list) > -1){
+                            if($(this).parent().is(':visible')){
+                               $(this).parent().show()
+                             }
+                        }else{
+                            $(this).parent().hide()
+                        }
+                    }
+                  if(tag_three_list != null && tag_three_list.length > 0){
+                        if(jQuery.inArray(tagthree,tag_three_list) > -1){
+                            if($(this).parent().is(':visible')){
+                               $(this).parent().show()
+                             }
+                        }else{
+                            $(this).parent().hide()
+                        }
+                    }
+                    if(description_list != null && description_list.length > 0){
+                        if(jQuery.inArray(description,description_list) > -1){
+                            if($(this).parent().is(':visible')){
+                               $(this).parent().show()
+                            }
+                        }else{
+                            $(this).parent().hide()
+                        }
+                    }
+                    if(geo_list != null && geo_list.length > 0){
+                        if(jQuery.inArray(geo,geo_list) > -1){
+                            if($(this).parent().is(':visible')){
+                               $(this).parent().show()
+                            }
+                        }else{
+                            $(this).parent().hide()
+                        }
+                    }
+                    if(category_list != null && category_list.length > 0){
+                        if(jQuery.inArray(category,category_list) > -1){
+                            if($(this).parent().is(':visible')){
+                               $(this).parent().show()
+                            }
+                        }else{
+                            $(this).parent().hide()
+                        }
+                    }
+                    if(domain_list != null && domain_list.length > 0){
+                        if(jQuery.inArray(domain,domain_list) > -1){
+                            if($(this).parent().is(':visible')){
+                               $(this).parent().show()
+                            }
+                        }else{
+                            $(this).parent().hide()
+                        }
+                    }
+                    if(segment_list != null && segment_list.length > 0){
+                        if(jQuery.inArray(segment,segment_list) > -1){
+                            if($(this).parent().is(':visible')){
+                               $(this).parent().show()
+                            }
+                        }else{
+                            $(this).parent().hide()
+                        }
+                    }
+                    if(dir_indir_list != null && dir_indir_list.length > 0){
+                        if(jQuery.inArray(dir_indir,dir_indir_list) > -1){
+                            if($(this).parent().is(':visible')){
+                               $(this).parent().show()
+                            }
+                        }else{
+                            $(this).parent().hide()
+                        }
+                    }
+                    
+                    if(fixed_rpq_list != null && fixed_rpq_list.length > 0){
+                       if(jQuery.inArray(fixed_rpq,fixed_rpq_list) > -1){
+                            if($(this).parent().is(':visible')){
+                               $(this).parent().show()
+                            }
+                        }else{
+                            $(this).parent().hide()
+                        }
+                    }
+                    if(range_max != "" && range_min != ""){
+                       if(range != "NA" && (range >= range_min || range <= range_max)){
+                            if($(this).parent().is(':visible')){
+                               $(this).parent().show()
+                            }
+                        }else{
+                            $(this).parent().hide()
+                        }
+                    }
+                });
+                var selectEmpty = true;
+                $("#selectCatalogForm select").each(function(){
+                    if($(this).val() != "" && $(this).val() != null){
+                        selectEmpty = false
+                    }
+                });
+                
+                if(selectEmpty == true && ($(".fee_range_min").val() =="" || $(".fee_range_max").val() == "" )){
+                    $("div.selected_filters").html("");
+                }else{
+                    $(".filtersApplied").val("true");
+                }
+                
+            }
+// *********************To Show the filtered pages, based on the chosen filters **************END//
+$(document).on("click", ".getPageUrl" ,function(){
+  var urlPageId = $(this).next("div").attr("data-url-page");
+  if(params.catalogType == 'unapproved'){
+	location.href = 'preview.html?catalogId='+params.catalogId+'&catalogType=unapproved&go='+urlPageId
+  }else{
+	location.href = 'preview.html?catalogId='+params.catalogId+'&go='+urlPageId 
+  } 
+})
+
+$(document).on("click", ".edcompMain a", function(){
+ if ($(this).attr('href').indexOf('#') != -1)
+	$(".backClose").css('visibility','visible');
+})
+
+$(document).on("click", ".backClose", function(){
+  window.history.back();
+})
+
+$(document).on("click", ".main_menu_link", function(){
+	   $("html, body").animate({ 
+		scrollTop: $("#mainPage .tab-content").eq(1).offset().top - 20
+	   }, 1000);
+})
+
+function isIE () {
+    var myNav = navigator.userAgent.toLowerCase();
+    if((myNav.indexOf('msie') != -1)) {
+        return parseInt(myNav.split('msie')[1]);
+    }else {
+        return (myNav.indexOf('MSIE'))? parseInt(myNav.split('MSIE')[1]): false;
+    }
+}
+    
+$(document).on("keyup", "#page-input", function(event){
+    if(event.which == 13){
+        var page_number = $(this).val();
+        $('.tab-content:visible').each(function(index){
+            var page_index = index+1;
+            if(page_number > $('.tab-content').length){
+                 if(isIE() == '7' || isIE() == '8') {
+                   
+                 }else{
+                    swal("The page number you entered does not exist");
+                }
+                $('#page-input').val('');
+                return;
+            }
+            if(page_index == page_number){
+                $('html, body').animate({
+                    scrollTop: $("#"+$(this).attr('id')).offset().top
+                }, 1200);
+            }
+        });
+    }
+});
+
+if(window.innerWidth <640){
+    $('.backTop').addClass('backTopAdjustMobile');
+}
+function checkOffset() {
+    if($('.mainMenu').offset().top + $('.mainMenu').height() >= $('footer').offset().top - 10){
+        $('.mainMenu').addClass("absoluteClass");
+        $('.backTop').addClass("backTopAdjust");
+        $('.mainMenu').removeClass("fixedClass");
+      }
+    if($(document).scrollTop() + window.innerHeight < $('footer').offset().top){
+        $('.mainMenu').addClass("fixedClass");
+        $('.mainMenu').removeClass("absoluteClass");
+        $('.backTop').removeClass("backTopAdjust");
+      }
+
+      if($('.backClose').offset().top + $('.backClose').height() >= $('footer').offset().top - 10){
+        $('.backClose').addClass("absoluteClass");
+        $('.backClose').removeClass("fixedClass");
+      }
+    if($(document).scrollTop() + window.innerHeight < $('footer').offset().top){
+        $('.backClose').addClass("fixedClass");
+        $('.backClose').removeClass("absoluteClass");
+      }
+}
+$(document).scroll(function() {
+    checkOffset();
+});
+    
+//************Email functionality for Share********************//    
+function validateEmail(field) {
+		var regex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,5}$/;
+        if(field.indexOf('<') > -1 || field.indexOf('>') > -1){
+            var filteredEmail = field.substring(field.lastIndexOf("<")+1,field.lastIndexOf(">"));
+        }else{
+             var filteredEmail = field;
+        }
+		return (regex.test(filteredEmail)) ? true : false;
+	}
+    function validateMultipleEmailsCommaSeparated(emailcntl, seperator) {
+		var value = emailcntl.value;
+		if (value != '') {
+			var result = value.split(seperator);
+			for (var i = 0; i < result.length; i++) {
+                var emailValue = $.trim(result[i])
+				if (emailValue != '') {
+					if (!validateEmail(emailValue)) {
+						emailcntl.focus();
+						swal('Email ID( ' + emailValue + ' ) is not valid!');
+						return false;
+					}
+				}
+			}
+		}
+		return true;
+	}
+	
+	$(document).on("click", ".sendEmail", function() {
+		var elem = document.getElementById('sendto');
+		if ($("#sendto").val() == "") {
+			//swal("Please enter email id");
+			$("#sendto").focus();
+			swal("Please enter Email ID(s)");
+			//return false;
+		}else if(!validateMultipleEmailsCommaSeparated(elem,';')){
+			$("#sendto").focus();
+			//swal("Please enter a valid Email ID");
+			//return false;			
+		}else{
+		var userName = localStorage.getItem('userName');
+		var addMoreStr = $("#share_modal form").serialize();
+        var catalogTitle = $('#subjectMail').val().split(': ')[1];
+		$(".loadingImg").css('display','block');
+		$("._blackBackGround").css('display','block');
+		$.ajax({
+			type: "POST",
+			cache: false,
+			url: "scm/send/mail" + "?catalogueId=" + params.catId + "&username=" + localStorage.getItem('userName'),
+			data: addMoreStr,
+			success: function(data) {
+				$(".loadingImg").hide();
+				$("._blackBackGround").hide();
+				if (data.status == true) {
+					$('#share_modal').modal('hide');
+					//showConfirm(true);
+					swal({
+						 title: "",
+						 text: "The Email has been sent successfully",
+						 type: "success",
+						 timer: 2000
+						 }),
+						 function () {
+							//location.reload(true);
+							tr.hide();
+						 };
+				} else {
+					//swal("There is some problem in sending mails to \n \n"+ data.status);
+					swal("There is a SMTP server error while sending email. Please try again later.");
+
+				}
+
+			},
+			fail: function() {
+				//getDataForm("service_five", "five")
+
+			}
+		});
+		}
+	})
+	
+	$(document).on("click", ".sendEmail1", function() {
+		var elem = document.getElementById('sendto');
+		if ($("#sendto").val() == "") {
+			//swal("Please enter email id");
+			$("#sendto").focus();
+			swal("Please enter Email ID");
+			//return false;
+		}else if(!validateMultipleEmailsCommaSeparated(elem,';')){
+			$("#sendto").focus();
+			//swal("Please enter a valid Email ID");
+			//return false;			
+		}else{
+			$(".loadingImg").show();
+			$("._blackBackGround").show();
+			var userName = localStorage.getItem('userName');
+			var addMoreStr = $("#share_modal form").serialize();
+            var catalogTitle = $('#subjectMail').val().split(': ')[1];
+			$.ajax({
+				type: "POST",
+				cache: false,
+				url: "scm/send/mail" + "?catalogueId=" + params.catalogId + "&username=" + localStorage.getItem('userName'),
+				data: addMoreStr,
+				success: function(data) {
+					$(".loadingImg").hide();
+					$("._blackBackGround").hide();
+					if (data.status == true) {
+						$('#share_modal').modal('hide');
+						swal({
+							 title: "",
+							 text: "The email has been sent successfully",
+							 type: "success",
+							 timer: 2000
+							 }),
+							 function () {
+								//location.
+                            (true);
+								tr.hide();
+							 };
+					} else {
+						//swal("There is some problem in sending mails to \n \n"+ data.status);
+						swal("There is a SMTP server error while sending email. Please try again later.");
+
+					}
+
+				},
+				fail: function() {
+					//getDataForm("service_five", "five")
+
+				}
+			});
+		}
+
+	});
+
+
+
+	/*window.validateEmail = function(field) {
+
+		if (field.indexOf("hds.com") != -1) {
+			var regex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,5}$/;
+			return (regex.test(field)) ? true : false;
+		} else {
+			swal("Mail ID Should Be From HDS.com")
+				//swal("Mail id should be from HDS.com")
+		}
+
+	}*/
+
+var text= null;
+var inputText =null;
+var srch = null;
+    
+function highlight(){
+        var text = decodeURIComponent(params.searchBy);
+        $('#mainPage').highlight(text) 
+    }
+
+    
+jQuery.fn.highlight = function(pat) {
+ function innerHighlight(node, pat) {
+  var skip = 0;
+  if (node.nodeType == 3) {
+   var pos = node.data.toUpperCase().indexOf(pat);
+   pos -= (node.data.substr(0, pos).toUpperCase().length - node.data.substr(0, pos).length);
+   if (pos >= 0) {
+    var spannode = document.createElement('span');
+    spannode.className = 'highlight';
+    var middlebit = node.splitText(pos);
+    var endbit = middlebit.splitText(pat.length);
+    var middleclone = middlebit.cloneNode(true);
+    spannode.appendChild(middleclone);
+    middlebit.parentNode.replaceChild(spannode, middlebit);
+    skip = 1;
+   }
+  }
+  else if (node.nodeType == 1 && node.childNodes && !/(script|style)/i.test(node.tagName)) {
+   for (var i = 0; i < node.childNodes.length; ++i) {
+    i += innerHighlight(node.childNodes[i], pat);
+   }
+  }
+  return skip;
+ }
+ return this.length && pat && pat.length ? this.each(function() {
+  innerHighlight(this, pat.toUpperCase());
+ }) : this;
+};
+
+jQuery.fn.removeHighlight = function() {
+ return this.find("span.highlight").each(function() {
+  this.parentNode.firstChild.nodeName;
+  with (this.parentNode) {
+   replaceChild(this.firstChild, this);
+   normalize();
+  }
+ }).end();
+};         
+
+</script>
+<style type="text/css">
+    div.fixedDownloadPDFLink {position: fixed;bottom: 0;right: 0;width: 300px;}
+    .highlight{background-color:yellow;}        
+    
+    footer{padding-top: 30px;padding-bottom: 30px;}
+  footer .container{
+    padding-bottom: 0;
+  }
+@media only screen and (max-device-width: 768px){
+    .container{
+    width:100%;
+    max-width:100%;
+    }
+    
+    .comp1.temp3{
+    width:30.2%
+    }
+    .editMode_comp2 .header-banner{
+    max-width:100%;
+    }
+    .banner_logo{
+    width:93%;
+    }
+    .getPageUrl{
+    right:10px
+    }
+}
+  @media only screen and (max-device-width: 640px){
+    .comp1.temp3{width: 29%;}
+    .getPageUrl {display: none} 
+    }
+</style>
+</body>
+    
+	 <!--[if gt IE 8 | !IE ]><!-->
+         <script src="alerts/sweetalert.min.js"></script>
+      <![endif]-->
+
+</html>
