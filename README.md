@@ -1,0 +1,2 @@
+# JavascriptTutorials
+Training purpose only
